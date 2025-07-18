@@ -1,16 +1,20 @@
-// src/main.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
+
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { DataProvider } from "./context/DataContext";  // context for data fetching
 import App from "./App";
+
+const theme = extendTheme({}); // default
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-
-    <ChakraProvider value={{} as any}> 
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <App />
+        <DataProvider>
+          <App />
+        </DataProvider>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>
