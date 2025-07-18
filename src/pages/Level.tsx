@@ -1,7 +1,8 @@
 // src/pages/Level.tsx
 import { useState } from "react";
 import { Box, Heading } from "@chakra-ui/react";
-import { DragLetters } from "../components/DragLetters";
+import DragLetters from "../components/DragLetters";
+
 
 export default function Level() {
     const [finished, setFinished] = useState(false);
