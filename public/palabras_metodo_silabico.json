@@ -1,0 +1,892 @@
+{
+  "version": "1.0.0",
+  "locale": "es-CL",
+  "consonants": [
+    {
+      "id": "M",
+      "order": 1,
+      "label": "Letra M",
+      "words": [
+        {
+          "id": "mamá",
+          "text": "mamá",
+          "image": "img/words/mamá.png",
+          "alt": "Ilustración de mamá",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mapa",
+          "text": "mapa",
+          "image": "img/words/mapa.png",
+          "alt": "Ilustración de mapa",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mano",
+          "text": "mano",
+          "image": "img/words/mano.png",
+          "alt": "Ilustración de mano",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mesa",
+          "text": "mesa",
+          "image": "img/words/mesa.png",
+          "alt": "Ilustración de mesa",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mimo",
+          "text": "mimo",
+          "image": "img/words/mimo.png",
+          "alt": "Ilustración de mimo",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mono",
+          "text": "mono",
+          "image": "img/words/mono.png",
+          "alt": "Ilustración de mono",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "moro",
+          "text": "moro",
+          "image": "img/words/moro.png",
+          "alt": "Ilustración de moro",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "muro",
+          "text": "muro",
+          "image": "img/words/muro.png",
+          "alt": "Ilustración de muro",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "mima",
+          "text": "mima",
+          "image": "img/words/mima.png",
+          "alt": "Ilustración de mima",
+          "hints": "Empieza con M"
+        },
+        {
+          "id": "misa",
+          "text": "misa",
+          "image": "img/words/misa.png",
+          "alt": "Ilustración de misa",
+          "hints": "Empieza con M"
+        }
+      ]
+    },
+    {
+      "id": "P",
+      "order": 2,
+      "label": "Letra P",
+      "words": [
+        {
+          "id": "papa",
+          "text": "papa",
+          "image": "img/words/papa.png",
+          "alt": "Ilustración de papa",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pato",
+          "text": "pato",
+          "image": "img/words/pato.png",
+          "alt": "Ilustración de pato",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pala",
+          "text": "pala",
+          "image": "img/words/pala.png",
+          "alt": "Ilustración de pala",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pava",
+          "text": "pava",
+          "image": "img/words/pava.png",
+          "alt": "Ilustración de pava",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pipa",
+          "text": "pipa",
+          "image": "img/words/pipa.png",
+          "alt": "Ilustración de pipa",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pera",
+          "text": "pera",
+          "image": "img/words/pera.png",
+          "alt": "Ilustración de pera",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "puma",
+          "text": "puma",
+          "image": "img/words/puma.png",
+          "alt": "Ilustración de puma",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "pelo",
+          "text": "pelo",
+          "image": "img/words/pelo.png",
+          "alt": "Ilustración de pelo",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "peso",
+          "text": "peso",
+          "image": "img/words/peso.png",
+          "alt": "Ilustración de peso",
+          "hints": "Empieza con P"
+        },
+        {
+          "id": "piso",
+          "text": "piso",
+          "image": "img/words/piso.png",
+          "alt": "Ilustración de piso",
+          "hints": "Empieza con P"
+        }
+      ]
+    },
+    {
+      "id": "L",
+      "order": 3,
+      "label": "Letra L",
+      "words": [
+        {
+          "id": "lola",
+          "text": "lola",
+          "image": "img/words/lola.png",
+          "alt": "Ilustración de lola",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lila",
+          "text": "lila",
+          "image": "img/words/lila.png",
+          "alt": "Ilustración de lila",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lata",
+          "text": "lata",
+          "image": "img/words/lata.png",
+          "alt": "Ilustración de lata",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lupa",
+          "text": "lupa",
+          "image": "img/words/lupa.png",
+          "alt": "Ilustración de lupa",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lomo",
+          "text": "lomo",
+          "image": "img/words/lomo.png",
+          "alt": "Ilustración de lomo",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "luna",
+          "text": "luna",
+          "image": "img/words/luna.png",
+          "alt": "Ilustración de luna",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lino",
+          "text": "lino",
+          "image": "img/words/lino.png",
+          "alt": "Ilustración de lino",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "loro",
+          "text": "loro",
+          "image": "img/words/loro.png",
+          "alt": "Ilustración de loro",
+          "hints": "Empieza con L"
+        },
+        {
+          "id": "lazo",
+          "text": "lazo",
+          "image": "img/words/lazo.png",
+          "alt": "Ilustración de lazo",
+          "hints": "Empieza con L"
+        }
+      ]
+    },
+    {
+      "id": "S",
+      "order": 4,
+      "label": "Letra S",
+      "words": [
+        {
+          "id": "sopa",
+          "text": "sopa",
+          "image": "img/words/sopa.png",
+          "alt": "Ilustración de sopa",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "sala",
+          "text": "sala",
+          "image": "img/words/sala.png",
+          "alt": "Ilustración de sala",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "suma",
+          "text": "suma",
+          "image": "img/words/suma.png",
+          "alt": "Ilustración de suma",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "silla",
+          "text": "silla",
+          "image": "img/words/silla.png",
+          "alt": "Ilustración de silla",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "soso",
+          "text": "soso",
+          "image": "img/words/soso.png",
+          "alt": "Ilustración de soso",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "sapo",
+          "text": "sapo",
+          "image": "img/words/sapo.png",
+          "alt": "Ilustración de sapo",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "sole",
+          "text": "sole",
+          "image": "img/words/sole.png",
+          "alt": "Ilustración de sole",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "silo",
+          "text": "silo",
+          "image": "img/words/silo.png",
+          "alt": "Ilustración de silo",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "suso",
+          "text": "suso",
+          "image": "img/words/suso.png",
+          "alt": "Ilustración de suso",
+          "hints": "Empieza con S"
+        },
+        {
+          "id": "sol",
+          "text": "sol",
+          "image": "img/words/sol.png",
+          "alt": "Ilustración de sol",
+          "hints": "Empieza con S"
+        }
+      ]
+    },
+    {
+      "id": "T",
+      "order": 5,
+      "label": "Letra T",
+      "words": [
+        {
+          "id": "tata",
+          "text": "tata",
+          "image": "img/words/tata.png",
+          "alt": "Ilustración de tata",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "tapa",
+          "text": "tapa",
+          "image": "img/words/tapa.png",
+          "alt": "Ilustración de tapa",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "taco",
+          "text": "taco",
+          "image": "img/words/taco.png",
+          "alt": "Ilustración de taco",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "taza",
+          "text": "taza",
+          "image": "img/words/taza.png",
+          "alt": "Ilustración de taza",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "tiza",
+          "text": "tiza",
+          "image": "img/words/tiza.png",
+          "alt": "Ilustración de tiza",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "tito",
+          "text": "tito",
+          "image": "img/words/tito.png",
+          "alt": "Ilustración de tito",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "tubo",
+          "text": "tubo",
+          "image": "img/words/tubo.png",
+          "alt": "Ilustración de tubo",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "toro",
+          "text": "toro",
+          "image": "img/words/toro.png",
+          "alt": "Ilustración de toro",
+          "hints": "Empieza con T"
+        },
+        {
+          "id": "tino",
+          "text": "tino",
+          "image": "img/words/tino.png",
+          "alt": "Ilustración de tino",
+          "hints": "Empieza con T"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "order": 6,
+      "label": "Letra D",
+      "words": [
+        {
+          "id": "dado",
+          "text": "dado",
+          "image": "img/words/dado.png",
+          "alt": "Ilustración de dado",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dama",
+          "text": "dama",
+          "image": "img/words/dama.png",
+          "alt": "Ilustración de dama",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dina",
+          "text": "dina",
+          "image": "img/words/dina.png",
+          "alt": "Ilustración de dina",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "duda",
+          "text": "duda",
+          "image": "img/words/duda.png",
+          "alt": "Ilustración de duda",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "duro",
+          "text": "duro",
+          "image": "img/words/duro.png",
+          "alt": "Ilustración de duro",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "duna",
+          "text": "duna",
+          "image": "img/words/duna.png",
+          "alt": "Ilustración de duna",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dolo",
+          "text": "dolo",
+          "image": "img/words/dolo.png",
+          "alt": "Ilustración de dolo",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dodo",
+          "text": "dodo",
+          "image": "img/words/dodo.png",
+          "alt": "Ilustración de dodo",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dote",
+          "text": "dote",
+          "image": "img/words/dote.png",
+          "alt": "Ilustración de dote",
+          "hints": "Empieza con D"
+        },
+        {
+          "id": "dios",
+          "text": "dios",
+          "image": "img/words/dios.png",
+          "alt": "Ilustración de dios",
+          "hints": "Empieza con D"
+        }
+      ]
+    },
+    {
+      "id": "N",
+      "order": 7,
+      "label": "Letra N",
+      "words": [
+        {
+          "id": "nana",
+          "text": "nana",
+          "image": "img/words/nana.png",
+          "alt": "Ilustración de nana",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nene",
+          "text": "nene",
+          "image": "img/words/nene.png",
+          "alt": "Ilustración de nene",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nido",
+          "text": "nido",
+          "image": "img/words/nido.png",
+          "alt": "Ilustración de nido",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nudo",
+          "text": "nudo",
+          "image": "img/words/nudo.png",
+          "alt": "Ilustración de nudo",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nube",
+          "text": "nube",
+          "image": "img/words/nube.png",
+          "alt": "Ilustración de nube",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nula",
+          "text": "nula",
+          "image": "img/words/nula.png",
+          "alt": "Ilustración de nula",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nuca",
+          "text": "nuca",
+          "image": "img/words/nuca.png",
+          "alt": "Ilustración de nuca",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nilo",
+          "text": "nilo",
+          "image": "img/words/nilo.png",
+          "alt": "Ilustración de nilo",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nono",
+          "text": "nono",
+          "image": "img/words/nono.png",
+          "alt": "Ilustración de nono",
+          "hints": "Empieza con N"
+        },
+        {
+          "id": "nota",
+          "text": "nota",
+          "image": "img/words/nota.png",
+          "alt": "Ilustración de nota",
+          "hints": "Empieza con N"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "order": 8,
+      "label": "Letra F",
+      "words": [
+        {
+          "id": "foca",
+          "text": "foca",
+          "image": "img/words/foca.png",
+          "alt": "Ilustración de foca",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "faro",
+          "text": "faro",
+          "image": "img/words/faro.png",
+          "alt": "Ilustración de faro",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "fama",
+          "text": "fama",
+          "image": "img/words/fama.png",
+          "alt": "Ilustración de fama",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "foma",
+          "text": "foma",
+          "image": "img/words/foma.png",
+          "alt": "Ilustración de foma",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "fema",
+          "text": "fema",
+          "image": "img/words/fema.png",
+          "alt": "Ilustración de fema",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "fuma",
+          "text": "fuma",
+          "image": "img/words/fuma.png",
+          "alt": "Ilustración de fuma",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "fino",
+          "text": "fino",
+          "image": "img/words/fino.png",
+          "alt": "Ilustración de fino",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "foco",
+          "text": "foco",
+          "image": "img/words/foco.png",
+          "alt": "Ilustración de foco",
+          "hints": "Empieza con F"
+        },
+        {
+          "id": "foso",
+          "text": "foso",
+          "image": "img/words/foso.png",
+          "alt": "Ilustración de foso",
+          "hints": "Empieza con F"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "order": 9,
+      "label": "Letra B",
+      "words": [
+        {
+          "id": "baba",
+          "text": "baba",
+          "image": "img/words/baba.png",
+          "alt": "Ilustración de baba",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "bebe",
+          "text": "bebe",
+          "image": "img/words/bebe.png",
+          "alt": "Ilustración de bebe",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "bobo",
+          "text": "bobo",
+          "image": "img/words/bobo.png",
+          "alt": "Ilustración de bobo",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "bala",
+          "text": "bala",
+          "image": "img/words/bala.png",
+          "alt": "Ilustración de bala",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "bola",
+          "text": "bola",
+          "image": "img/words/bola.png",
+          "alt": "Ilustración de bola",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "boca",
+          "text": "boca",
+          "image": "img/words/boca.png",
+          "alt": "Ilustración de boca",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "boda",
+          "text": "boda",
+          "image": "img/words/boda.png",
+          "alt": "Ilustración de boda",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "bajo",
+          "text": "bajo",
+          "image": "img/words/bajo.png",
+          "alt": "Ilustración de bajo",
+          "hints": "Empieza con B"
+        },
+        {
+          "id": "buzo",
+          "text": "buzo",
+          "image": "img/words/buzo.png",
+          "alt": "Ilustración de buzo",
+          "hints": "Empieza con B"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "order": 10,
+      "label": "Letra C",
+      "words": [
+        {
+          "id": "casa",
+          "text": "casa",
+          "image": "img/words/casa.png",
+          "alt": "Ilustración de casa",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cama",
+          "text": "cama",
+          "image": "img/words/cama.png",
+          "alt": "Ilustración de cama",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cala",
+          "text": "cala",
+          "image": "img/words/cala.png",
+          "alt": "Ilustración de cala",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "coco",
+          "text": "coco",
+          "image": "img/words/coco.png",
+          "alt": "Ilustración de coco",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cupo",
+          "text": "cupo",
+          "image": "img/words/cupo.png",
+          "alt": "Ilustración de cupo",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cima",
+          "text": "cima",
+          "image": "img/words/cima.png",
+          "alt": "Ilustración de cima",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cuna",
+          "text": "cuna",
+          "image": "img/words/cuna.png",
+          "alt": "Ilustración de cuna",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cena",
+          "text": "cena",
+          "image": "img/words/cena.png",
+          "alt": "Ilustración de cena",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "cana",
+          "text": "cana",
+          "image": "img/words/cana.png",
+          "alt": "Ilustración de cana",
+          "hints": "Empieza con C"
+        },
+        {
+          "id": "capa",
+          "text": "capa",
+          "image": "img/words/capa.png",
+          "alt": "Ilustración de capa",
+          "hints": "Empieza con C"
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "order": 11,
+      "label": "Letra G",
+      "words": [
+        {
+          "id": "gaga",
+          "text": "gaga",
+          "image": "img/words/gaga.png",
+          "alt": "Ilustración de gaga",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "goma",
+          "text": "goma",
+          "image": "img/words/goma.png",
+          "alt": "Ilustración de goma",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "gato",
+          "text": "gato",
+          "image": "img/words/gato.png",
+          "alt": "Ilustración de gato",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "gafa",
+          "text": "gafa",
+          "image": "img/words/gafa.png",
+          "alt": "Ilustración de gafa",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "gola",
+          "text": "gola",
+          "image": "img/words/gola.png",
+          "alt": "Ilustración de gola",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "gala",
+          "text": "gala",
+          "image": "img/words/gala.png",
+          "alt": "Ilustración de gala",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "gira",
+          "text": "gira",
+          "image": "img/words/gira.png",
+          "alt": "Ilustración de gira",
+          "hints": "Empieza con G"
+        },
+        {
+          "id": "giro",
+          "text": "giro",
+          "image": "img/words/giro.png",
+          "alt": "Ilustración de giro",
+          "hints": "Empieza con G"
+        }
+      ]
+    },
+    {
+      "id": "R",
+      "order": 12,
+      "label": "Letra R",
+      "words": [
+        {
+          "id": "rara",
+          "text": "rara",
+          "image": "img/words/rara.png",
+          "alt": "Ilustración de rara",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rata",
+          "text": "rata",
+          "image": "img/words/rata.png",
+          "alt": "Ilustración de rata",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rama",
+          "text": "rama",
+          "image": "img/words/rama.png",
+          "alt": "Ilustración de rama",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rima",
+          "text": "rima",
+          "image": "img/words/rima.png",
+          "alt": "Ilustración de rima",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "riso",
+          "text": "riso",
+          "image": "img/words/riso.png",
+          "alt": "Ilustración de riso",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rana",
+          "text": "rana",
+          "image": "img/words/rana.png",
+          "alt": "Ilustración de rana",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "roca",
+          "text": "roca",
+          "image": "img/words/roca.png",
+          "alt": "Ilustración de roca",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rufo",
+          "text": "rufo",
+          "image": "img/words/rufo.png",
+          "alt": "Ilustración de rufo",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rueda",
+          "text": "rueda",
+          "image": "img/words/rueda.png",
+          "alt": "Ilustración de rueda",
+          "hints": "Empieza con R"
+        },
+        {
+          "id": "rizo",
+          "text": "rizo",
+          "image": "img/words/rizo.png",
+          "alt": "Ilustración de rizo",
+          "hints": "Empieza con R"
+        }
+      ]
+    }
+  ],
+  "awards": {
+    "medal_base_url": "img/medals/",
+    "per_level": true
+  }
+}
