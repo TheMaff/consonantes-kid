@@ -8,6 +8,5 @@ export default function LinkButton(props: LinkButtonProps) {
     const { to, ...rest } = props;
     return (
         <Button as={RouterLink as any} {...(rest as any)} to={to as any} />
-
     );
 }
