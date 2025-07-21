@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
     DndContext,
     PointerSensor,
+    closestCenter,
     useSensor,
     useSensors,
     useDraggable,
@@ -31,7 +32,7 @@ export default function DragLetters({ word, onDone }: Props) {
         const { active, over } = e;
         if (!over) return;
 
-        const draggedLetter = active.id as string;
+        const draggedLetter = active.data.current?.letter as string;
         const targetIndex = Number(over.id);
 
         const next = [...slots];
@@ -43,22 +44,29 @@ export default function DragLetters({ word, onDone }: Props) {
 
     return (
         <Box>
-            {/* casillas */ }
-            <Flex gap={2} justify="center" mb={6}>
-            {
-                letters.map((_,i)=>(
-                    <Slot key={i} id={i.toString()} letter={slots[i]}/>
-                ))
-            }
-            </Flex>
+            <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
+            >
+                {/* casillas */ }
+                <Flex gap={2} justify="center" mb={6}>
+                {
+                    letters.map((_,i)=>(
+                        <Slot key={i} id={i.toString()} letter={slots[i]}/>
+                    ))
+                }
+                </Flex>
 
-            {/* letras arrastrables */ }
-            <DndContext sensors={sensors} onDragEnd={handleDragEnd} >
+                {/* letras arrastrables */ }
                 <Flex gap={2} wrap="wrap" justify="center">
                 {
-                    shuffled.map((l) => (
-                        <DraggableLetter key={l} id={l}>
-                        {l.toUpperCase()}
+                    shuffled.map((l,i) => (
+                        <DraggableLetter
+                            key={`${l}-${i}`} 
+                            id={`d-${i}`}
+                            letter={l}>
+                            
                         </DraggableLetter>
                     ))
                 }
@@ -70,27 +78,30 @@ export default function DragLetters({ word, onDone }: Props) {
 
 /* ---------- sub-componentes ---------- */
 
-function DraggableLetter({id,children}:
+function DraggableLetter({id,letter}:
     {
         id: string;
-        children: React.ReactNode;
+        letter: string;
     }
 )
 {
-    const {attributes, listeners, setNodeRef, transform, isDragging}=useDraggable({ id });
+    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+        id,
+        data: {letter},
+    });
     return (
         <Button
             ref= {setNodeRef}
             {...listeners}
             {...attributes}
             size="lg"
-            aria-label={`Letra ${id}`}
+            aria-label={`Letra ${letter}`}
             style={{
                 transform:CSS.Translate.toString(transform),
                 opacity:isDragging ? 0.5 : 1,
             }}
         >
-            { children }
+            { letter.toUpperCase() }
         </Button>
     );
 }
