@@ -56,8 +56,10 @@ export default function DragLetters({ word, onDone }: Props) {
             <DndContext sensors={sensors} onDragEnd={handleDragEnd} >
                 <Flex gap={2} wrap="wrap" justify="center">
                 {
-                    shuffled.map((l) => (
-                        <DraggableLetter key={l} id={l}>
+                    shuffled.map((l,i) => (
+                        <DraggableLetter
+                            key={`${l}-${i}`} 
+                            id={`${l}-${i}`}>
                         {l.toUpperCase()}
                         </DraggableLetter>
                     ))
