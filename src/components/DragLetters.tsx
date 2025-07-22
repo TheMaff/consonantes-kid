@@ -4,6 +4,7 @@ import {
     DndContext,
     PointerSensor,
     closestCenter,
+    TouchSensor,
     useSensor,
     useSensors,
     type DragEndEvent,
@@ -35,7 +36,14 @@ export default function DragLetters({ word, onDone }: Props) {
     const [tiles, setTiles] = useState<Tile[]>(initTiles);
     const [errorSlots, setErrorSlots] = useState<Set<number>>(new Set());
 
-    const sensors = useSensors(useSensor(PointerSensor));
+    const sensors = useSensors(
+        useSensor(PointerSensor, {
+            activationConstraint: { distance: 5 }
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: { delay: 100, tolerance: 5 },
+        })
+    );
 
     /* ficha en slot i */
     const tileInSlot = (idx: number) =>
@@ -178,6 +186,7 @@ function Slot({
             display="flex"
             alignItems="center"
             justifyContent="center"
+            sx={{ touchAction: "none" }}
         >
             {children}
         </Box>
@@ -201,6 +210,7 @@ function Bank({ children }: { children: React.ReactNode }) {
             borderColor={isOver ? "teal.400" : "gray.300"}
             borderRadius="md"
             minH="68px"
+            sx={{ touchAction: "none" }} // evita scroll en móviles
         >
             {empty ? <Text opacity={0.4}>Banco vacío</Text> : children}
         </Flex>
