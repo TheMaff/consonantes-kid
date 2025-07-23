@@ -4,6 +4,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { DataProvider } from "./context/DataContext";  // context for data fetching
+import { AuthProvider } from "./context/AuthContext";  // context for authentication
+
+import { ProgressProvider } from "./context/ProgressContext";
 import App from "./App";
 
 const theme = extendTheme({}); // default
@@ -11,11 +14,19 @@ const theme = extendTheme({}); // default
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <DataProvider>
-          <App />
-        </DataProvider>
-      </BrowserRouter>
+      <ProgressProvider>
+        <BrowserRouter>
+          <AuthProvider>
+
+            <DataProvider>
+                <App />
+              </DataProvider>
+          
+          </AuthProvider>
+        </BrowserRouter>
+      </ProgressProvider>
     </ChakraProvider>
   </React.StrictMode>
 );
+
+
