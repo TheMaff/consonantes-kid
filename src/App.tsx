@@ -12,7 +12,6 @@ export default function App() {
 
   const [session] = useState<boolean>(false);
   return (
-        
     <Routes>
         
         {!session && <Route path="/*" element={<Login />} />}
@@ -25,7 +24,6 @@ export default function App() {
             <Route path="/level/:consonant/:word" element={<Level />} />
           </>
         )}
-        
       </Routes>
   );
 }
