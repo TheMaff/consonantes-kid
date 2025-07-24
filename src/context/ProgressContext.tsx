@@ -6,7 +6,6 @@ import {
     type ReactNode,
 } from "react";
 import { supabase } from "../lib/supabase";
-// import { consonantList as _consonantList } from "../data/consonants";
 import { consonantList } from "../data/consonants";
 
 type Row = {

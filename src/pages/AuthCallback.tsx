@@ -8,15 +8,25 @@ export default function AuthCallback() {
 
     useEffect(() => {
         (async () => {
-            const { error } = await supabase.auth.exchangeCodeForSession( );
+            // ① procesa access_token, refresh_token, etc.
+            const { error } = await supabase.auth.getSessionFromUrl({
+                storeSession: true   // guarda en localStorage
+            });
+
             if (error) {
-                console.error(error);
+                console.error("AuthCallback error", error);
                 navigate("/login", { replace: true });
                 return;
             }
-            navigate("/", { replace: true });          // Home
+
+            // ② a Home
+            navigate("/", { replace: true });
         })();
     }, [navigate]);
 
-    return <p style={{ textAlign: "center", marginTop: "4rem" }}>Verificando login…</p>;
+    return (
+        <p style={{ textAlign: "center", marginTop: "4rem" }}>
+            Verificando&nbsp;login…
+        </p>
+    );
 }
