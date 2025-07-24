@@ -1,9 +1,11 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+
+// File: FrontEnd/consonantes-kid/src/pages/AuthCallback.tsx
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 export default function AuthCallback() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
     useEffect(() => {
         console.log( "AuthCallback mounted");
