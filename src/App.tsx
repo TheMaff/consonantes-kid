@@ -1,5 +1,5 @@
 // src/App.tsx
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Level from "./pages/Level";
 import Login from "./pages/Login";
@@ -12,8 +12,8 @@ export default function App() {
 
   const [session] = useState<boolean>(false);
   return (
-    <HashRouter>
-      <Routes>
+        
+    <Routes>
         
         {!session && <Route path="/*" element={<Login />} />}
 
@@ -27,6 +27,5 @@ export default function App() {
         )}
         
       </Routes>
-    </HashRouter>
   );
 }
