@@ -1,41 +1,25 @@
+// src/pages/AuthCallback.tsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
-
-function parseFragment(hash: string) {
-    const params = new URLSearchParams(hash.replace("#", ""));
-    return {
-        access_token: params.get("access_token") ?? "",
-        refresh_token: params.get("refresh_token") ?? "",
-    };
-}
 
 export default function AuthCallback() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const { access_token, refresh_token } = parseFragment(
-            window.location.hash,
-        );
-
-        if (!access_token || !refresh_token) {
-            navigate("/login", { replace: true });
-            return;
-        }
-
         (async () => {
-            const { error } = await supabase.auth.setSession({
-                access_token,
-                refresh_token,
+            // ① procesa access_token, refresh_token, etc.
+            const { error } = await (supabase.auth as any).getSessionFromUrl({
+                storeSession: true,
             });
 
             if (error) {
-                console.error("setSession error →", error);
+                console.error("AuthCallback error", error);
                 navigate("/login", { replace: true });
                 return;
             }
-            
-            window.location.hash = "";
+
+            // ② a Home
             navigate("/", { replace: true });
         })();
     }, [navigate]);
