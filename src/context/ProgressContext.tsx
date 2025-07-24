@@ -6,7 +6,8 @@ import {
     type ReactNode,
 } from "react";
 import { supabase } from "../lib/supabase";
-import { consonantList as _consonantList } from "../data/consonants";
+// import { consonantList as _consonantList } from "../data/consonants";
+import { consonantList } from "../data/consonants";
 
 type Row = {
     consonant: string;
@@ -54,7 +55,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }, []);
 
     /* ───── helpers ───── */
-    const isUnlocked = (consonantList: string, idx: number) => {
+    const isUnlocked = (_cons: string, idx: number) => {
         if (idx === 0) return true;
         const prev = consonantList[idx - 1];
         return progress[prev]?.done ?? false;
