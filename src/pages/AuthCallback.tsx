@@ -9,8 +9,8 @@ export default function AuthCallback() {
     useEffect(() => {
         (async () => {
             // ① procesa access_token, refresh_token, etc.
-            const { error } = await supabase.auth.getSessionFromUrl({
-                storeSession: true   // guarda en localStorage
+            const { error } = await (supabase.auth as any).getSessionFromUrl({
+                storeSession: true,
             });
 
             if (error) {
