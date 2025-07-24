@@ -13,9 +13,7 @@ export default function App() {
   const [session] = useState<boolean>(false);
   return (
     <Routes>
-        
         {!session && <Route path="/*" element={<Login />} />}
-
         {session && (
           <>
             <Route path="/auth/callback" element={<AuthCallback />} />

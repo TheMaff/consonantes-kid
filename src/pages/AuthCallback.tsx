@@ -1,45 +1,59 @@
+
 // File: FrontEnd/consonantes-kid/src/pages/AuthCallback.tsx
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase'; // Asegúrate de que esta ruta sea correcta
+import { supabase } from '../lib/supabase';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Suscribirse a los cambios de estado de autenticación
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      // El evento 'SIGNED_IN' se dispara cuando la sesión se establece correctamente
-      // después de una redirección de autenticación.
-      if (event === 'SIGNED_IN' && session) {
-        console.log("AuthCallback exitoso, sesión:", session);
-        navigate("/", { replace: true }); // Redirigir a tu página de inicio/dashboard
-      } else if (event === 'SIGNED_OUT') {
-        // Si el usuario se desloguea o la sesión no es válida por alguna razón
-        console.log("AuthCallback: Sesión cerrada o inválida.");
-        navigate("/login", { replace: true }); // Redirigir a la página de inicio de sesión
-      }
-      // Otros eventos como 'INITIAL_SESSION', 'TOKEN_REFRESHED' también pueden ser manejados
-    });
+    useEffect(() => {
+        console.log( "AuthCallback mounted");
+        // 0️⃣  Si no hay hash, redirige a login
+        if (!window.location.hash) {
+            console.log( "No hash found, redirecting to login");
+            
+            navigate("/login", { replace: true });
+            return;
+        }
 
-    // Limpiar el listener cuando el componente se desmonte
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, [navigate]); // Añadir navigate al array de dependencias
+        (async () => {
+            // 1️⃣  Lee el hash #access_token=&refresh_token=...
+            const hash = window.location.hash.startsWith("#")
+                ? window.location.hash.substring(1)           // quita ‘#’
+                : window.location.hash;
 
-  return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      fontSize: '1.5rem',
-      color: '#333'
-    }}>
-      <p>Procesando autenticación, por favor espera...</p>
-      {/* Puedes añadir un spinner de carga aquí para una mejor experiencia de usuario */}
-    </div>
-  );
+            const params = new URLSearchParams(hash);
+            const access_token = params.get("access_token");
+            const refresh_token = params.get("refresh_token");
+            console.log("hash", hash);
+            
 
+            // 2️⃣  Si ambos existen los guardamos manualmente
+            if (access_token && refresh_token) {
+                console.log("tokens", { access_token, refresh_token });
+                
+                const { error } = await supabase.auth.setSession({
+                    access_token,
+                    refresh_token,
+                });
+                if (error) {
+                    console.error("setSession error", error);
+                    navigate("/login", { replace: true });
+                    return;
+                }
+            }
+
+            // 3️⃣  Si por alguna razón los tokens ya fueron
+            //     persistidos por el SDK, `getSession()` nos los dará.
+            const {
+                data: { session },
+            } = await supabase.auth.getSession();
+
+            // 4️⃣  Redirige según tengamos o no sesión.
+            navigate(session ? "/" : "/login", { replace: true });
+        })();
+    }, [navigate]);
+
+    return <p style={{ textAlign: "center", marginTop: "4rem" }}>Verificando login…</p>;
 }

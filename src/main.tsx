@@ -19,9 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <AuthProvider>
 
             <DataProvider>
-                <App />
-              </DataProvider>
-          
+              <App />
+            </DataProvider>
+
           </AuthProvider>
         </BrowserRouter>
       </ProgressProvider>
