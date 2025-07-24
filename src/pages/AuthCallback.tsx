@@ -8,9 +8,9 @@ export default function AuthCallback() {
 
   useEffect(() => {
     (async () => {
-      const { data, error } = await supabase.auth.exchangeCodeForSession({
-          storeSession: true,
-      });
+        
+        const { data, error } = await supabase.auth.exchangeCodeForSession( window.location.search );
+        // const { data, error } = await supabase.auth.getSessionFromUrl({ storeSession: true });
 
       if (error) {
         console.error("AuthCallback error", error);

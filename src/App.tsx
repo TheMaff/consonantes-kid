@@ -1,16 +1,16 @@
 // src/App.tsx
-import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Level from "./pages/Level";
 import Login from "./pages/Login";
 import AuthCallback from "./pages/AuthCallback";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 export default function App() {
 
-  const [session, setSession] = useState<boolean>(false);
+  const [session] = useState<boolean>(false);
   return (
     <>
       <Routes>
@@ -31,16 +31,6 @@ export default function App() {
          */}
         
       </Routes>
-    </>
-  );
-}
-
-/* Layout simple con cabecera opcional */
-function Layout() {
-  return (
-    <>
-      {/* puedes poner un Header aquí */}
-      <Outlet />
     </>
   );
 }
