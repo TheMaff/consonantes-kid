@@ -12,8 +12,8 @@ export default function App() {
 
   const [session] = useState<boolean>(false);
   return (
-    <HashRouter>
-      <Routes>
+        
+    <Routes>
         
         {!session && <Route path="/*" element={<Login />} />}
 
@@ -27,6 +27,5 @@ export default function App() {
         )}
         
       </Routes>
-    </HashRouter>
   );
 }
