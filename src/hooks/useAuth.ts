@@ -1,4 +1,3 @@
-// src/hooks/useAuth.ts
 import { supabase } from "../lib/supabase";
 
 export async function signInWithEmail(email: string) {
@@ -6,10 +5,9 @@ export async function signInWithEmail(email: string) {
         email,
         options: {
             shouldCreateUser: true,
-            emailRedirectTo: import.meta.env.VITE_REDIRECT
-         },
-        
+            emailRedirectTo:
+                `${import.meta.env.VITE_REDIRECT}/#/auth/callback`,
+        },
     });
-
     return error;
 }
