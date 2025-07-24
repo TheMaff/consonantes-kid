@@ -41,4 +41,5 @@ export default function AuthCallback() {
       {/* Puedes añadir un spinner de carga aquí para una mejor experiencia de usuario */}
     </div>
   );
+
 }
