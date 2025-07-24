@@ -4,9 +4,7 @@ export async function signInWithEmail(email: string) {
     const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-            shouldCreateUser: true,
-            emailRedirectTo:
-                `${import.meta.env.VITE_REDIRECT}/#/auth/callback`,
+            emailRedirectTo: import.meta.env.VITE_REDIRECT,
         },
     });
     return error;
