@@ -6,20 +6,17 @@ export default function AuthCallback() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // 1️⃣ – no hash  ->  back to /login
-        if (!window.location.hash) {
-            navigate("/login", { replace: true });
-            return;
-        }
-
-        // 2️⃣ – parse tokens del fragmento
         (async () => {
-            const params = new URLSearchParams(window.location.hash.substring(1));
+            // 1. Tomamos el fragmento #access_token=…&refresh_token=…
+            const params = new URLSearchParams(window.location.hash.slice(1));
             const access_token = params.get("access_token");
             const refresh_token = params.get("refresh_token");
 
             if (access_token && refresh_token) {
-                const { error } = await supabase.auth.setSession({ access_token, refresh_token });
+                const { error } = await supabase.auth.setSession({
+                    access_token,
+                    refresh_token,
+                });
                 if (error) {
                     console.error("[AuthCallback] setSession error:", error);
                     navigate("/login", { replace: true });
@@ -27,15 +24,8 @@ export default function AuthCallback() {
                 }
             }
 
-            // 3️⃣ – esperar a que el cliente emita el evento de sesión lista
-            const { data: { subscription } } = supabase.auth.onAuthStateChange(
-                async (event) => {
-                    if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
-                        subscription.unsubscribe();          // 👉 sólo una vez
-                        navigate("/", { replace: true });    // a la Home
-                    }
-                }
-            );
+            // 2.  Redirigimos: si la sesión existe AuthProvider lo sabrá
+            navigate("/", { replace: true });
         })();
     }, [navigate]);
 
