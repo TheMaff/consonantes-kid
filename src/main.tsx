@@ -10,8 +10,10 @@ import { ProgressProvider } from "./context/ProgressContext";
 import App from "./App";
 
 const theme = extendTheme({}); // default
+console.log("[main] rendering");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
+  
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <ProgressProvider>

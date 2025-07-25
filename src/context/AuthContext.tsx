@@ -1,40 +1,46 @@
 // src/context/AuthContext.tsx
-import { createContext, useContext, useEffect, useState } from "react";
-import { type Session } from "@supabase/supabase-js";
+import {
+    createContext, useContext, useEffect, useState, type ReactNode,
+} from "react";
 import { supabase } from "../lib/supabase";
+import type { Session } from "@supabase/supabase-js";
 
 interface AuthCtx {
     session: Session | null;
-    signIn: (email: string) => Promise<void>;
-    signOut: () => Promise<void>;
+    loading: boolean;
 }
 
 const Ctx = createContext<AuthCtx | null>(null);
-export const useAuth = () => useContext(Ctx)!;
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export const useAuth = () => {
+    const c = useContext(Ctx);
+    if (!c) throw new Error("useAuth must be inside <AuthProvider>");
+    return c;
+};
+
+export function AuthProvider({ children }: { children: ReactNode }) {
     const [session, setSession] = useState<Session | null>(null);
+    const [loading, setLoading] = useState(true);
 
+    // ① Obtiene la sesión que ya pudo haber quedado guardada
     useEffect(() => {
-        const { data } = supabase.auth.onAuthStateChange((_, sess) => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            setSession(session ?? null);
+            setLoading(false);
+        });
+
+        // ② Se mantiene escuchando cambios (LOGIN, LOGOUT, REFRESH…)
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange((_event, sess) => {
             setSession(sess);
         });
-        supabase.auth.getSession().then(({ data }) => setSession(data.session));
-        return () => data.subscription.unsubscribe();
+
+        return () => subscription.unsubscribe();
     }, []);
 
-    const signIn = async (email: string) => {
-        const { error } = await supabase.auth.signInWithOtp({ email });
-        if (error) alert(error.message);
-        else alert("¡Revisa tu correo para el enlace mágico!");
-    };
-
-    const signOut = async () => {
-        await supabase.auth.signOut();
-    }
-
     return (
-        <Ctx.Provider value={{ session, signIn, signOut }}>
+        <Ctx.Provider value={{ session, loading }}>
             {children}
         </Ctx.Provider>
     );

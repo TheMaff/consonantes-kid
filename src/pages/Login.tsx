@@ -21,6 +21,8 @@ export default function LoginPage() {
     };
 
     return (
+        console.log("[LoginPage] rendering"),
+        
         <Box maxW="sm" mx="auto" mt={12}>
             {status === "sent" ? (
                 <Text>Revisa tu correo y haz clic en el enlace para continuar.</Text>
