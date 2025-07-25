@@ -1,59 +1,47 @@
-
-// File: FrontEnd/consonantes-kid/src/pages/AuthCallback.tsx
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 
 export default function AuthCallback() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        console.log( "AuthCallback mounted");
-        // 0️⃣  Si no hay hash, redirige a login
+        // 1️⃣ – no hash  ->  back to /login
         if (!window.location.hash) {
-            console.log( "No hash found, redirecting to login");
-            
             navigate("/login", { replace: true });
             return;
         }
 
+        // 2️⃣ – parse tokens del fragmento
         (async () => {
-            // 1️⃣  Lee el hash #access_token=&refresh_token=...
-            const hash = window.location.hash.startsWith("#")
-                ? window.location.hash.substring(1)           // quita ‘#’
-                : window.location.hash;
-
-            const params = new URLSearchParams(hash);
+            const params = new URLSearchParams(window.location.hash.substring(1));
             const access_token = params.get("access_token");
             const refresh_token = params.get("refresh_token");
-            console.log("hash", hash);
-            
 
-            // 2️⃣  Si ambos existen los guardamos manualmente
             if (access_token && refresh_token) {
-                console.log("tokens", { access_token, refresh_token });
-                
-                const { error } = await supabase.auth.setSession({
-                    access_token,
-                    refresh_token,
-                });
+                const { error } = await supabase.auth.setSession({ access_token, refresh_token });
                 if (error) {
-                    console.error("setSession error", error);
+                    console.error("[AuthCallback] setSession error:", error);
                     navigate("/login", { replace: true });
                     return;
                 }
             }
 
-            // 3️⃣  Si por alguna razón los tokens ya fueron
-            //     persistidos por el SDK, `getSession()` nos los dará.
-            const {
-                data: { session },
-            } = await supabase.auth.getSession();
-
-            // 4️⃣  Redirige según tengamos o no sesión.
-            navigate(session ? "/" : "/login", { replace: true });
+            // 3️⃣ – esperar a que el cliente emita el evento de sesión lista
+            const { data: { subscription } } = supabase.auth.onAuthStateChange(
+                async (event) => {
+                    if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
+                        subscription.unsubscribe();          // 👉 sólo una vez
+                        navigate("/", { replace: true });    // a la Home
+                    }
+                }
+            );
         })();
     }, [navigate]);
 
-    return <p style={{ textAlign: "center", marginTop: "4rem" }}>Verificando login…</p>;
+    return (
+        <p style={{ textAlign: "center", marginTop: "4rem" }}>
+            Verificando sesión…
+        </p>
+    );
 }

@@ -1,5 +1,5 @@
 //#src/types/supabase.d.ts
-import "@supabase/supabase-js";
+import { AuthError, Session } from "@supabase/supabase-js";
 
 declare module "@supabase/supabase-js" {
     interface SupabaseAuthClient {

@@ -16,9 +16,9 @@ export default function App() {
         {!session && <Route path="/*" element={<Login />} />}
         {session && (
           <>
-            <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/*" element={<Home />} />
             <Route path="/level/:consonant/:word" element={<Level />} />
           </>
         )}
