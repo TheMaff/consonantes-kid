@@ -13,17 +13,19 @@ export default function AuthCallback() {
             const refresh_token = params.get("refresh_token");
 
             if (access_token && refresh_token) {
+
                 const { error } = await supabase.auth.setSession({
                     access_token,
                     refresh_token,
                 });
+
                 if (error) {
                     console.error("[AuthCallback] setSession error:", error);
                     navigate("/login", { replace: true });
                     return;
                 }
             }
-
+          
             // 2.  Redirigimos: si la sesión existe AuthProvider lo sabrá
             navigate("/", { replace: true });
         })();
