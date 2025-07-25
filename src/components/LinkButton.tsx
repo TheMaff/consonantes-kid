@@ -5,8 +5,12 @@ import { Link as RouterLink, type LinkProps } from "react-router-dom";
 type LinkButtonProps = ButtonProps & LinkProps;
 
 export default function LinkButton(props: LinkButtonProps) {
-    const { to, ...rest } = props;
+    const { to, isDisabled, ...rest } = props;
     return (
-        <Button as={RouterLink as any} {...(rest as any)} to={to as any} />
+        <Button
+            {...rest}    
+            isDisabled={isDisabled}
+            {...(!isDisabled && { as: RouterLink, to })}
+        />
     );
 }
