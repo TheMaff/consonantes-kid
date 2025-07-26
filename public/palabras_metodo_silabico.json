@@ -10,70 +10,70 @@
         {
           "id": "mamá",
           "text": "mamá",
-          "image": "img/words/mamá.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mama.png",
           "alt": "Ilustración de mamá",
           "hints": "Empieza con M"
         },
         {
           "id": "mapa",
           "text": "mapa",
-          "image": "img/words/mapa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mapa.png",
           "alt": "Ilustración de mapa",
           "hints": "Empieza con M"
         },
         {
           "id": "mano",
           "text": "mano",
-          "image": "img/words/mano.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mano.png",
           "alt": "Ilustración de mano",
           "hints": "Empieza con M"
         },
         {
           "id": "mesa",
           "text": "mesa",
-          "image": "img/words/mesa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mesa.png",
           "alt": "Ilustración de mesa",
           "hints": "Empieza con M"
         },
         {
           "id": "mimo",
           "text": "mimo",
-          "image": "img/words/mimo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mimo.png",
           "alt": "Ilustración de mimo",
           "hints": "Empieza con M"
         },
         {
           "id": "mono",
           "text": "mono",
-          "image": "img/words/mono.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mono.png",
           "alt": "Ilustración de mono",
           "hints": "Empieza con M"
         },
         {
           "id": "moro",
           "text": "moro",
-          "image": "img/words/moro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/moro.png",
           "alt": "Ilustración de moro",
           "hints": "Empieza con M"
         },
         {
           "id": "muro",
           "text": "muro",
-          "image": "img/words/muro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/muro.png",
           "alt": "Ilustración de muro",
           "hints": "Empieza con M"
         },
         {
           "id": "mima",
           "text": "mima",
-          "image": "img/words/mima.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/mima.png",
           "alt": "Ilustración de mima",
           "hints": "Empieza con M"
         },
         {
           "id": "misa",
           "text": "misa",
-          "image": "img/words/misa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/misa.png",
           "alt": "Ilustración de misa",
           "hints": "Empieza con M"
         }
