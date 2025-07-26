@@ -1,6 +1,6 @@
 // src/pages/Level.tsx
 import { useParams, useNavigate, Navigate } from "react-router-dom";
-import { Box, Button, Heading, Image, Flex } from "@chakra-ui/react";
+import { Box, Button, Image, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import DragLetters from "../components/DragLetters";
@@ -48,8 +48,6 @@ export default function Level() {
     return (
         <Box p={6} textAlign="center">
             <Flex gap="4" direction="column" align="center">
-
-            {/* <Heading mb={4}>{current.text.toUpperCase()}</Heading> */}
 
             <Image
                 src={current.image}
