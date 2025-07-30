@@ -3,8 +3,11 @@ import { Box, Button, Flex, Heading, Spinner } from "@chakra-ui/react"
 import LinkButton from "../components/LinkButton"
 import { useData } from "../context/DataContext"
 import { useProgress } from "../context/ProgressContext"
+import BottomNav from "../components/BottomNav";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    const navigate = useNavigate();
     const { consonants, loading } = useData();
     const { progress, isUnlocked } = useProgress();
 
@@ -32,15 +35,17 @@ export default function Home() {
                         <Button
                             key={c.id}
                             size="lg"
-                            isDisabled
                             variant="outline"
-                            colorScheme="gray"
+                                colorScheme="gray"
+                                onClick={() => unlocked && navigate(`/level/${c.id}/${c.words[0].id}`)}
+                                isDisabled={!unlocked}
                         >
                             {c.id}
                         </Button>
                     );
                 })}
             </Flex>
+            <BottomNav />
         </Box>
     )
 }

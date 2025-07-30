@@ -50,13 +50,6 @@
           "hints": "Empieza con M"
         },
         {
-          "id": "moro",
-          "text": "moro",
-          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/moro.png",
-          "alt": "Ilustración de moro",
-          "hints": "Empieza con M"
-        },
-        {
           "id": "muro",
           "text": "muro",
           "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/muro.png",
@@ -87,70 +80,70 @@
         {
           "id": "papa",
           "text": "papa",
-          "image": "img/words/papa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/papa.png",
           "alt": "Ilustración de papa",
           "hints": "Empieza con P"
         },
         {
           "id": "pato",
           "text": "pato",
-          "image": "img/words/pato.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pato.png",
           "alt": "Ilustración de pato",
           "hints": "Empieza con P"
         },
         {
           "id": "pala",
           "text": "pala",
-          "image": "img/words/pala.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pala.png",
           "alt": "Ilustración de pala",
           "hints": "Empieza con P"
         },
         {
           "id": "pava",
           "text": "pava",
-          "image": "img/words/pava.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pava.png",
           "alt": "Ilustración de pava",
           "hints": "Empieza con P"
         },
         {
           "id": "pipa",
           "text": "pipa",
-          "image": "img/words/pipa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pipa.png",
           "alt": "Ilustración de pipa",
           "hints": "Empieza con P"
         },
         {
           "id": "pera",
           "text": "pera",
-          "image": "img/words/pera.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pera.png",
           "alt": "Ilustración de pera",
           "hints": "Empieza con P"
         },
         {
           "id": "puma",
           "text": "puma",
-          "image": "img/words/puma.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/puma.png",
           "alt": "Ilustración de puma",
           "hints": "Empieza con P"
         },
         {
           "id": "pelo",
           "text": "pelo",
-          "image": "img/words/pelo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/pelo.png",
           "alt": "Ilustración de pelo",
           "hints": "Empieza con P"
         },
         {
           "id": "peso",
           "text": "peso",
-          "image": "img/words/peso.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/peso.png",
           "alt": "Ilustración de peso",
           "hints": "Empieza con P"
         },
         {
           "id": "piso",
           "text": "piso",
-          "image": "img/words/piso.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/piso.png",
           "alt": "Ilustración de piso",
           "hints": "Empieza con P"
         }
@@ -164,63 +157,49 @@
         {
           "id": "lola",
           "text": "lola",
-          "image": "img/words/lola.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/lola.png",
           "alt": "Ilustración de lola",
           "hints": "Empieza con L"
         },
         {
           "id": "lila",
           "text": "lila",
-          "image": "img/words/lila.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/lila.png",
           "alt": "Ilustración de lila",
           "hints": "Empieza con L"
         },
         {
           "id": "lata",
           "text": "lata",
-          "image": "img/words/lata.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/lata.png",
           "alt": "Ilustración de lata",
           "hints": "Empieza con L"
         },
         {
           "id": "lupa",
           "text": "lupa",
-          "image": "img/words/lupa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/lupa.png",
           "alt": "Ilustración de lupa",
-          "hints": "Empieza con L"
-        },
-        {
-          "id": "lomo",
-          "text": "lomo",
-          "image": "img/words/lomo.png",
-          "alt": "Ilustración de lomo",
           "hints": "Empieza con L"
         },
         {
           "id": "luna",
           "text": "luna",
-          "image": "img/words/luna.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/luna.png",
           "alt": "Ilustración de luna",
-          "hints": "Empieza con L"
-        },
-        {
-          "id": "lino",
-          "text": "lino",
-          "image": "img/words/lino.png",
-          "alt": "Ilustración de lino",
           "hints": "Empieza con L"
         },
         {
           "id": "loro",
           "text": "loro",
-          "image": "img/words/loro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/loro.png",
           "alt": "Ilustración de loro",
           "hints": "Empieza con L"
         },
         {
           "id": "lazo",
           "text": "lazo",
-          "image": "img/words/lazo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/lazo.png",
           "alt": "Ilustración de lazo",
           "hints": "Empieza con L"
         }
@@ -234,70 +213,42 @@
         {
           "id": "sopa",
           "text": "sopa",
-          "image": "img/words/sopa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/sopa.png",
           "alt": "Ilustración de sopa",
           "hints": "Empieza con S"
         },
         {
           "id": "sala",
           "text": "sala",
-          "image": "img/words/sala.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/sala.png",
           "alt": "Ilustración de sala",
           "hints": "Empieza con S"
         },
         {
           "id": "suma",
           "text": "suma",
-          "image": "img/words/suma.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/suma.png",
           "alt": "Ilustración de suma",
           "hints": "Empieza con S"
         },
         {
           "id": "silla",
           "text": "silla",
-          "image": "img/words/silla.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/silla.png",
           "alt": "Ilustración de silla",
-          "hints": "Empieza con S"
-        },
-        {
-          "id": "soso",
-          "text": "soso",
-          "image": "img/words/soso.png",
-          "alt": "Ilustración de soso",
           "hints": "Empieza con S"
         },
         {
           "id": "sapo",
           "text": "sapo",
-          "image": "img/words/sapo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/sapo.png",
           "alt": "Ilustración de sapo",
-          "hints": "Empieza con S"
-        },
-        {
-          "id": "sole",
-          "text": "sole",
-          "image": "img/words/sole.png",
-          "alt": "Ilustración de sole",
-          "hints": "Empieza con S"
-        },
-        {
-          "id": "silo",
-          "text": "silo",
-          "image": "img/words/silo.png",
-          "alt": "Ilustración de silo",
-          "hints": "Empieza con S"
-        },
-        {
-          "id": "suso",
-          "text": "suso",
-          "image": "img/words/suso.png",
-          "alt": "Ilustración de suso",
           "hints": "Empieza con S"
         },
         {
           "id": "sol",
           "text": "sol",
-          "image": "img/words/sol.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/sol.png",
           "alt": "Ilustración de sol",
           "hints": "Empieza con S"
         }
@@ -311,63 +262,63 @@
         {
           "id": "tata",
           "text": "tata",
-          "image": "img/words/tata.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tata.png",
           "alt": "Ilustración de tata",
           "hints": "Empieza con T"
         },
         {
           "id": "tapa",
           "text": "tapa",
-          "image": "img/words/tapa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tapa.png",
           "alt": "Ilustración de tapa",
           "hints": "Empieza con T"
         },
         {
           "id": "taco",
           "text": "taco",
-          "image": "img/words/taco.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/taco.png",
           "alt": "Ilustración de taco",
           "hints": "Empieza con T"
         },
         {
           "id": "taza",
           "text": "taza",
-          "image": "img/words/taza.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/taza.png",
           "alt": "Ilustración de taza",
           "hints": "Empieza con T"
         },
         {
           "id": "tiza",
           "text": "tiza",
-          "image": "img/words/tiza.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tiza.png",
           "alt": "Ilustración de tiza",
           "hints": "Empieza con T"
         },
         {
           "id": "tito",
           "text": "tito",
-          "image": "img/words/tito.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tito.png",
           "alt": "Ilustración de tito",
           "hints": "Empieza con T"
         },
         {
           "id": "tubo",
           "text": "tubo",
-          "image": "img/words/tubo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tubo.png",
           "alt": "Ilustración de tubo",
           "hints": "Empieza con T"
         },
         {
           "id": "toro",
           "text": "toro",
-          "image": "img/words/toro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/toro.png",
           "alt": "Ilustración de toro",
           "hints": "Empieza con T"
         },
         {
           "id": "tino",
           "text": "tino",
-          "image": "img/words/tino.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/tino.png",
           "alt": "Ilustración de tino",
           "hints": "Empieza con T"
         }
@@ -381,70 +332,70 @@
         {
           "id": "dado",
           "text": "dado",
-          "image": "img/words/dado.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dado.png",
           "alt": "Ilustración de dado",
           "hints": "Empieza con D"
         },
         {
           "id": "dama",
           "text": "dama",
-          "image": "img/words/dama.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dama.png",
           "alt": "Ilustración de dama",
           "hints": "Empieza con D"
         },
         {
           "id": "dina",
           "text": "dina",
-          "image": "img/words/dina.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dina.png",
           "alt": "Ilustración de dina",
           "hints": "Empieza con D"
         },
         {
           "id": "duda",
           "text": "duda",
-          "image": "img/words/duda.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/duda.png",
           "alt": "Ilustración de duda",
           "hints": "Empieza con D"
         },
         {
           "id": "duro",
           "text": "duro",
-          "image": "img/words/duro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/duro.png",
           "alt": "Ilustración de duro",
           "hints": "Empieza con D"
         },
         {
           "id": "duna",
           "text": "duna",
-          "image": "img/words/duna.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/duna.png",
           "alt": "Ilustración de duna",
           "hints": "Empieza con D"
         },
         {
           "id": "dolo",
           "text": "dolo",
-          "image": "img/words/dolo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dolo.png",
           "alt": "Ilustración de dolo",
           "hints": "Empieza con D"
         },
         {
           "id": "dodo",
           "text": "dodo",
-          "image": "img/words/dodo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dodo.png",
           "alt": "Ilustración de dodo",
           "hints": "Empieza con D"
         },
         {
           "id": "dote",
           "text": "dote",
-          "image": "img/words/dote.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dote.png",
           "alt": "Ilustración de dote",
           "hints": "Empieza con D"
         },
         {
           "id": "dios",
           "text": "dios",
-          "image": "img/words/dios.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/dios.png",
           "alt": "Ilustración de dios",
           "hints": "Empieza con D"
         }
@@ -458,70 +409,70 @@
         {
           "id": "nana",
           "text": "nana",
-          "image": "img/words/nana.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nana.png",
           "alt": "Ilustración de nana",
           "hints": "Empieza con N"
         },
         {
           "id": "nene",
           "text": "nene",
-          "image": "img/words/nene.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nene.png",
           "alt": "Ilustración de nene",
           "hints": "Empieza con N"
         },
         {
           "id": "nido",
           "text": "nido",
-          "image": "img/words/nido.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nido.png",
           "alt": "Ilustración de nido",
           "hints": "Empieza con N"
         },
         {
           "id": "nudo",
           "text": "nudo",
-          "image": "img/words/nudo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nudo.png",
           "alt": "Ilustración de nudo",
           "hints": "Empieza con N"
         },
         {
           "id": "nube",
           "text": "nube",
-          "image": "img/words/nube.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nube.png",
           "alt": "Ilustración de nube",
           "hints": "Empieza con N"
         },
         {
           "id": "nula",
           "text": "nula",
-          "image": "img/words/nula.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nula.png",
           "alt": "Ilustración de nula",
           "hints": "Empieza con N"
         },
         {
           "id": "nuca",
           "text": "nuca",
-          "image": "img/words/nuca.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nuca.png",
           "alt": "Ilustración de nuca",
           "hints": "Empieza con N"
         },
         {
           "id": "nilo",
           "text": "nilo",
-          "image": "img/words/nilo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nilo.png",
           "alt": "Ilustración de nilo",
           "hints": "Empieza con N"
         },
         {
           "id": "nono",
           "text": "nono",
-          "image": "img/words/nono.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nono.png",
           "alt": "Ilustración de nono",
           "hints": "Empieza con N"
         },
         {
           "id": "nota",
           "text": "nota",
-          "image": "img/words/nota.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/nota.png",
           "alt": "Ilustración de nota",
           "hints": "Empieza con N"
         }
@@ -535,63 +486,63 @@
         {
           "id": "foca",
           "text": "foca",
-          "image": "img/words/foca.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/foca.png",
           "alt": "Ilustración de foca",
           "hints": "Empieza con F"
         },
         {
           "id": "faro",
           "text": "faro",
-          "image": "img/words/faro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/faro.png",
           "alt": "Ilustración de faro",
           "hints": "Empieza con F"
         },
         {
           "id": "fama",
           "text": "fama",
-          "image": "img/words/fama.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/fama.png",
           "alt": "Ilustración de fama",
           "hints": "Empieza con F"
         },
         {
           "id": "foma",
           "text": "foma",
-          "image": "img/words/foma.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/foma.png",
           "alt": "Ilustración de foma",
           "hints": "Empieza con F"
         },
         {
           "id": "fema",
           "text": "fema",
-          "image": "img/words/fema.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/fema.png",
           "alt": "Ilustración de fema",
           "hints": "Empieza con F"
         },
         {
           "id": "fuma",
           "text": "fuma",
-          "image": "img/words/fuma.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/fuma.png",
           "alt": "Ilustración de fuma",
           "hints": "Empieza con F"
         },
         {
           "id": "fino",
           "text": "fino",
-          "image": "img/words/fino.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/fino.png",
           "alt": "Ilustración de fino",
           "hints": "Empieza con F"
         },
         {
           "id": "foco",
           "text": "foco",
-          "image": "img/words/foco.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/foco.png",
           "alt": "Ilustración de foco",
           "hints": "Empieza con F"
         },
         {
           "id": "foso",
           "text": "foso",
-          "image": "img/words/foso.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/foso.png",
           "alt": "Ilustración de foso",
           "hints": "Empieza con F"
         }
@@ -605,63 +556,63 @@
         {
           "id": "baba",
           "text": "baba",
-          "image": "img/words/baba.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/baba.png",
           "alt": "Ilustración de baba",
           "hints": "Empieza con B"
         },
         {
           "id": "bebe",
           "text": "bebe",
-          "image": "img/words/bebe.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/bebe.png",
           "alt": "Ilustración de bebe",
           "hints": "Empieza con B"
         },
         {
           "id": "bobo",
           "text": "bobo",
-          "image": "img/words/bobo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/bobo.png",
           "alt": "Ilustración de bobo",
           "hints": "Empieza con B"
         },
         {
           "id": "bala",
           "text": "bala",
-          "image": "img/words/bala.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/bala.png",
           "alt": "Ilustración de bala",
           "hints": "Empieza con B"
         },
         {
           "id": "bola",
           "text": "bola",
-          "image": "img/words/bola.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/bola.png",
           "alt": "Ilustración de bola",
           "hints": "Empieza con B"
         },
         {
           "id": "boca",
           "text": "boca",
-          "image": "img/words/boca.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/boca.png",
           "alt": "Ilustración de boca",
           "hints": "Empieza con B"
         },
         {
           "id": "boda",
           "text": "boda",
-          "image": "img/words/boda.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/boda.png",
           "alt": "Ilustración de boda",
           "hints": "Empieza con B"
         },
         {
           "id": "bajo",
           "text": "bajo",
-          "image": "img/words/bajo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/bajo.png",
           "alt": "Ilustración de bajo",
           "hints": "Empieza con B"
         },
         {
           "id": "buzo",
           "text": "buzo",
-          "image": "img/words/buzo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/buzo.png",
           "alt": "Ilustración de buzo",
           "hints": "Empieza con B"
         }
@@ -675,70 +626,70 @@
         {
           "id": "casa",
           "text": "casa",
-          "image": "img/words/casa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/casa.png",
           "alt": "Ilustración de casa",
           "hints": "Empieza con C"
         },
         {
           "id": "cama",
           "text": "cama",
-          "image": "img/words/cama.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cama.png",
           "alt": "Ilustración de cama",
           "hints": "Empieza con C"
         },
         {
           "id": "cala",
           "text": "cala",
-          "image": "img/words/cala.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cala.png",
           "alt": "Ilustración de cala",
           "hints": "Empieza con C"
         },
         {
           "id": "coco",
           "text": "coco",
-          "image": "img/words/coco.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/coco.png",
           "alt": "Ilustración de coco",
           "hints": "Empieza con C"
         },
         {
           "id": "cupo",
           "text": "cupo",
-          "image": "img/words/cupo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cupo.png",
           "alt": "Ilustración de cupo",
           "hints": "Empieza con C"
         },
         {
           "id": "cima",
           "text": "cima",
-          "image": "img/words/cima.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cima.png",
           "alt": "Ilustración de cima",
           "hints": "Empieza con C"
         },
         {
           "id": "cuna",
           "text": "cuna",
-          "image": "img/words/cuna.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cuna.png",
           "alt": "Ilustración de cuna",
           "hints": "Empieza con C"
         },
         {
           "id": "cena",
           "text": "cena",
-          "image": "img/words/cena.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cena.png",
           "alt": "Ilustración de cena",
           "hints": "Empieza con C"
         },
         {
           "id": "cana",
           "text": "cana",
-          "image": "img/words/cana.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/cana.png",
           "alt": "Ilustración de cana",
           "hints": "Empieza con C"
         },
         {
           "id": "capa",
           "text": "capa",
-          "image": "img/words/capa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/capa.png",
           "alt": "Ilustración de capa",
           "hints": "Empieza con C"
         }
@@ -752,56 +703,56 @@
         {
           "id": "gaga",
           "text": "gaga",
-          "image": "img/words/gaga.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gaga.png",
           "alt": "Ilustración de gaga",
           "hints": "Empieza con G"
         },
         {
           "id": "goma",
           "text": "goma",
-          "image": "img/words/goma.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/goma.png",
           "alt": "Ilustración de goma",
           "hints": "Empieza con G"
         },
         {
           "id": "gato",
           "text": "gato",
-          "image": "img/words/gato.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gato.png",
           "alt": "Ilustración de gato",
           "hints": "Empieza con G"
         },
         {
           "id": "gafa",
           "text": "gafa",
-          "image": "img/words/gafa.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gafa.png",
           "alt": "Ilustración de gafa",
           "hints": "Empieza con G"
         },
         {
           "id": "gola",
           "text": "gola",
-          "image": "img/words/gola.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gola.png",
           "alt": "Ilustración de gola",
           "hints": "Empieza con G"
         },
         {
           "id": "gala",
           "text": "gala",
-          "image": "img/words/gala.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gala.png",
           "alt": "Ilustración de gala",
           "hints": "Empieza con G"
         },
         {
           "id": "gira",
           "text": "gira",
-          "image": "img/words/gira.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/gira.png",
           "alt": "Ilustración de gira",
           "hints": "Empieza con G"
         },
         {
           "id": "giro",
           "text": "giro",
-          "image": "img/words/giro.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/giro.png",
           "alt": "Ilustración de giro",
           "hints": "Empieza con G"
         }
@@ -815,70 +766,70 @@
         {
           "id": "rara",
           "text": "rara",
-          "image": "img/words/rara.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rara.png",
           "alt": "Ilustración de rara",
           "hints": "Empieza con R"
         },
         {
           "id": "rata",
           "text": "rata",
-          "image": "img/words/rata.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rata.png",
           "alt": "Ilustración de rata",
           "hints": "Empieza con R"
         },
         {
           "id": "rama",
           "text": "rama",
-          "image": "img/words/rama.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rama.png",
           "alt": "Ilustración de rama",
           "hints": "Empieza con R"
         },
         {
           "id": "rima",
           "text": "rima",
-          "image": "img/words/rima.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rima.png",
           "alt": "Ilustración de rima",
           "hints": "Empieza con R"
         },
         {
           "id": "riso",
           "text": "riso",
-          "image": "img/words/riso.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/riso.png",
           "alt": "Ilustración de riso",
           "hints": "Empieza con R"
         },
         {
           "id": "rana",
           "text": "rana",
-          "image": "img/words/rana.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rana.png",
           "alt": "Ilustración de rana",
           "hints": "Empieza con R"
         },
         {
           "id": "roca",
           "text": "roca",
-          "image": "img/words/roca.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/roca.png",
           "alt": "Ilustración de roca",
           "hints": "Empieza con R"
         },
         {
           "id": "rufo",
           "text": "rufo",
-          "image": "img/words/rufo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rufo.png",
           "alt": "Ilustración de rufo",
           "hints": "Empieza con R"
         },
         {
           "id": "rueda",
           "text": "rueda",
-          "image": "img/words/rueda.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rueda.png",
           "alt": "Ilustración de rueda",
           "hints": "Empieza con R"
         },
         {
           "id": "rizo",
           "text": "rizo",
-          "image": "img/words/rizo.png",
+          "image": "https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/words/rizo.png",
           "alt": "Ilustración de rizo",
           "hints": "Empieza con R"
         }

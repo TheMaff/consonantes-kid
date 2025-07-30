@@ -8,16 +8,22 @@ import Level from "./pages/Level";
 import Login from "./pages/Login";
 import AuthCallback from "./pages/AuthCallback";
 import { useEffect, useState } from "react";
+import Splash from "./pages/Splash";
 
 
 export default function App() {
 
+  const [initializing, setInitializing] = useState(true);
   const [session, setSession] = useState<Session | null>(null);
   // const { session } = useAuth();
 
   // ① carga inicial
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
+    supabase.auth.getSession().then(({ data }) => { 
+      setSession(data.session);
+      setInitializing(false);
+    }
+    );
 
     // ② cambios posteriores
     const {
@@ -31,6 +37,8 @@ export default function App() {
   }, []);
 
   console.log("[App] session:", session);
+
+  if (initializing) return <Splash />;
 
   return (
     <Routes>

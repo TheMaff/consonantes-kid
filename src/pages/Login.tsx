@@ -1,7 +1,7 @@
 // src/pages/Login.tsx
 import { useState } from "react";
 import { signInWithEmail } from "../hooks/useAuth";
-import { Input, Button, Box, Text } from "@chakra-ui/react";
+import { VStack, Image, Heading, Input, Button, Box, Text } from "@chakra-ui/react";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -22,25 +22,34 @@ export default function LoginPage() {
 
     return (
         console.log("[LoginPage] rendering"),
-        
-        <Box maxW="sm" mx="auto" mt={12}>
-            {status === "sent" ? (
-                <Text>Revisa tu correo y haz clic en el enlace para continuar.</Text>
-            ) : (
-                <form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        placeholder="tu@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        mb={4}
-                        isRequired
-                    />
-                    <Button type="submit" isLoading={status === "sending"} w="full">
-                        Enviar enlace mágico
-                    </Button>
-                </form>
-            )}
-        </Box>
+
+        <VStack spacing={6} mt="20">
+            <Image
+                src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/icon.png"
+                alt="Icono"
+                boxSize="80px"
+            />
+            <Heading size="md">Ingresa tu email</Heading>
+
+            <Box maxW="sm" mx="auto" mt={12}>
+                {status === "sent" ? (
+                    <Text>Revisa tu correo y haz clic en el enlace para continuar.</Text>
+                ) : (
+                    <form onSubmit={handleSubmit}>
+                        <Input
+                            type="email"
+                            placeholder="tu@email.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            mb={4}
+                            isRequired
+                        />
+                        <Button type="submit" isLoading={status === "sending"} w="full">
+                            Enviar enlace mágico
+                        </Button>
+                    </form>
+                )}
+            </Box>
+        </VStack>
     );
 }
