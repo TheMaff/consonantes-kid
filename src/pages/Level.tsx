@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import DragLetters from "../components/DragLetters";
 import { useData } from "../context/DataContext";
 import { useProgress } from "../context/ProgressContext";
+import BottomNav from "../components/BottomNav";
 
 export default function Level() {
     const navigate = useNavigate();
@@ -66,7 +67,7 @@ export default function Level() {
             )}
 
             </Flex>
-            
+            <BottomNav />
         </Box>
     );
 }
