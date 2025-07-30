@@ -8,12 +8,11 @@ export default function BottomNav() {
 
     useEffect(() => {
         async function fetchUser() {
-            const { data, error } = await supabase.auth.getUser();
+            const { data } = await supabase.auth.getUser();
             setUser(data?.user || null);
         }
         fetchUser();
     }, []);
-    const userId = user?.id ?? "00000000-0000-0000-0000-000000000000";
 
     return (
         <Box
