@@ -1,5 +1,5 @@
 // src/pages/Home.tsx
-import { Box, Button, Flex, VStack, Heading, Spinner } from "@chakra-ui/react"
+import { Box, Button, VStack, Heading, Spinner } from "@chakra-ui/react"
 import LinkButton from "../components/LinkButton"
 import { useData } from "../context/DataContext"
 import { useProgress } from "../context/ProgressContext"
