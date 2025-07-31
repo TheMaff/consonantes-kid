@@ -1,5 +1,5 @@
 // src/pages/Home.tsx
-import { Box, Button, Flex, Heading, Spinner } from "@chakra-ui/react"
+import { Box, Button, Flex, VStack, Heading, Spinner } from "@chakra-ui/react"
 import LinkButton from "../components/LinkButton"
 import { useData } from "../context/DataContext"
 import { useProgress } from "../context/ProgressContext"
@@ -15,18 +15,22 @@ export default function Home() {
 
     return (
         <Box p={6}>
-            <Heading mb={6}>Elige una consonante</Heading>
-            <Flex gap={4} wrap="wrap">
+            <Heading mb={6} textAlign="center">Elige una consonante</Heading>
+            
+            <VStack spacing={4} gap={4} wrap="nowrap" direction="column" align="center">
                 {consonants.map((c, idx) => {
+
                     const unlocked = isUnlocked(c.id, idx);
                     const done = progress[c.id]?.done;
+                    const isActive = unlocked && !done;
 
                     return unlocked ? (
                         <LinkButton
-                            key={c.id}
-                            size="lg"
+                            key={c.id} size={isActive ? "lg" : "sm"}
+                            isDisabled={!unlocked}
                             variant={done ? "solid" : "outline"}
-                            colorScheme={done ? "teal" : "gray"}
+                            colorScheme={done ? "yellow" : isActive ? "teal" : "gray"}
+
                             to={`/level/${c.id}/${c.words[0].id}`}
                         >
                             {c.id}
@@ -34,8 +38,8 @@ export default function Home() {
                     ) : (
                         <Button
                             key={c.id}
-                            size="lg"
-                            variant="outline"
+                            size="sm"
+                                variant="ghost"
                                 colorScheme="gray"
                                 onClick={() => unlocked && navigate(`/level/${c.id}/${c.words[0].id}`)}
                                 isDisabled={!unlocked}
@@ -44,7 +48,7 @@ export default function Home() {
                         </Button>
                     );
                 })}
-            </Flex>
+            </VStack>
             <BottomNav />
         </Box>
     )

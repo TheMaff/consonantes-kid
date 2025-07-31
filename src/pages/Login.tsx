@@ -1,7 +1,7 @@
 // src/pages/Login.tsx
 import { useState } from "react";
 import { signInWithEmail } from "../hooks/useAuth";
-import { VStack, Image, Heading, Input, Button, Box, Text } from "@chakra-ui/react";
+import { Container, VStack, Image, Heading, Input, Button, Box, Text } from "@chakra-ui/react";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -21,9 +21,9 @@ export default function LoginPage() {
     };
 
     return (
-        console.log("[LoginPage] rendering"),
-
-        <VStack spacing={6} mt="20">
+        
+        <Container maxW="container.md" px={20}>
+            <VStack spacing={6} mt="20">
             <Image
                 src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/icon.png"
                 alt="Icono"
@@ -31,9 +31,9 @@ export default function LoginPage() {
             />
             <Heading size="md">Ingresa tu email</Heading>
 
-            <Box maxW="sm" mx="auto" mt={12}>
+            <Box maxW="sm" mx="auto" mt={5}>
                 {status === "sent" ? (
-                    <Text>Revisa tu correo y haz clic en el enlace para continuar.</Text>
+                    <Text align={"center"}>Revisa tu correo y haz clic en el enlace para continuar.</Text>
                 ) : (
                     <form onSubmit={handleSubmit}>
                         <Input
@@ -45,11 +45,13 @@ export default function LoginPage() {
                             isRequired
                         />
                         <Button type="submit" isLoading={status === "sending"} w="full">
-                            Enviar enlace mágico
+                            Enviar enlace de acceso
                         </Button>
                     </form>
                 )}
             </Box>
-        </VStack>
+            </VStack>
+        </Container>
+
     );
 }
