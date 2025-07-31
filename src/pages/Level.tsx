@@ -7,6 +7,7 @@ import DragLetters from "../components/DragLetters";
 import { useData } from "../context/DataContext";
 import { useProgress } from "../context/ProgressContext";
 import BottomNav from "../components/BottomNav";
+import ProgressBar from "../components/ProgressBar";
 
 export default function Level() {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function Level() {
     /* si algo no cuadra, vuelve al mapa ------------------------- */
     if (!currentCons || !current) return <Navigate to="/" />;
 
-    useEffect(()=> setShowNext(false), [current.id]);
+    useEffect(() => setShowNext(false), [current.id]);
 
     /* cuando el usuario ordena bien las letras ------------------ */
     const handleDone = () => {
@@ -41,30 +42,34 @@ export default function Level() {
             setShowNext(false);
             navigate(`/level/${currentCons.id}/${nextWord.id}`);
         } else {
-            navigate("/");            // terminó el nivel
+            navigate("/level-complete");            // terminó el nivel
         }
     };
 
     /* vista ----------------------------------------------------- */
     return (
         <Box p={6} textAlign="center">
+            <Flex gap="4" direction="row" align="center">
+                <ProgressBar current={currentCons.words.findIndex(w => w.id === current.id) + 1} total={currentCons.words.length}/>
+            </Flex>
+
             <Flex gap="4" direction="column" align="center">
 
-            <Image
-                src={current.image}
-                alt={current.alt}
-                boxSize="200px"
-                mb={6}
-                objectFit="contain"
-            />
+                <Image
+                    src={current.image}
+                    alt={current.alt}
+                    boxSize="200px"
+                    mb={6}
+                    objectFit="contain"
+                />
 
-            <DragLetters key={current.id} word={current.text} onDone={handleDone} />
+                <DragLetters key={current.id} word={current.text} onDone={handleDone} />
 
-            {showNext && (
-                <Button mt={6} colorScheme="teal" onClick={goNext}>
-                    Siguiente
-                </Button>
-            )}
+                {showNext && (
+                    <Button mt={6} colorScheme="teal" onClick={goNext}>
+                        Siguiente
+                    </Button>
+                )}
 
             </Flex>
             <BottomNav />
