@@ -8,8 +8,10 @@ import { useData } from "../context/DataContext";
 import { useProgress } from "../context/ProgressContext";
 import BottomNav from "../components/BottomNav";
 import ProgressBar from "../components/ProgressBar";
+import { useBadges } from "../context/BadgeContext";
 
 export default function Level() {
+    const { grantBadge } = useBadges();
     const navigate = useNavigate();
     const { consonant, word } = useParams<{ consonant: string; word: string }>();
 
@@ -33,7 +35,7 @@ export default function Level() {
     };
 
     /* botón SIGUIENTE ------------------------------------------ */
-    const goNext = () => {
+    const goNext = async () => {
         const idx = currentCons.words.findIndex((w) => w.id === current.id);
         const nextIdx = idx + 1;
 
@@ -42,6 +44,12 @@ export default function Level() {
             setShowNext(false);
             navigate(`/level/${currentCons.id}/${nextWord.id}`);
         } else {
+            // Última palabra → otorgar medalla y pantalla de fin de nivel
+            try {
+                await grantBadge(currentCons.id);
+            } catch (err) {
+                console.error("Error al otorgar medalla:", err);
+            }
             navigate("/level-complete");            // terminó el nivel
         }
     };
