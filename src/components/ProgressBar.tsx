@@ -7,6 +7,7 @@ interface ProgressBarProps {
 }
 
 export default function ProgressBar({ current, total }: ProgressBarProps) {
+
     const percent = total ? Math.round(((current - 1) / total) * 100): 0;
     const navigate = useNavigate();
 

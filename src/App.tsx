@@ -13,6 +13,7 @@ import LevelComplete from "./pages/LevelComplete";
 import Profile from "./pages/Profile";
 
 
+
 export default function App() {
 
   const [initializing, setInitializing] = useState(true);
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/level/:consonant/:word" element={<Level />} />
           <Route path="/level-complete" element={<LevelComplete />} />
           <Route path="/profile" element={<Profile />} />
+
           <Route path="*" element={<Home />} />
         </>
       ) : (
