@@ -10,6 +10,7 @@ import { AuthProvider } from "./context/AuthContext";  // context for authentica
 
 import { ProgressProvider } from "./context/ProgressContext";
 import App from "./App";
+import { BadgeProvider } from "./context/BadgeContext";
 
 // const theme = extendTheme({}); // default
 console.log("[main] rendering");
@@ -21,11 +22,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <ProgressProvider>
         <BrowserRouter>
           <AuthProvider>
+            <BadgeProvider>
 
-            <DataProvider>
-              <App />
-            </DataProvider>
-
+              <DataProvider>
+                <App />
+              </DataProvider>
+              
+            </BadgeProvider>
           </AuthProvider>
         </BrowserRouter>
       </ProgressProvider>

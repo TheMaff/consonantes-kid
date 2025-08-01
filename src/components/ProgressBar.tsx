@@ -7,13 +7,23 @@ interface ProgressBarProps {
 }
 
 export default function ProgressBar({ current, total }: ProgressBarProps) {
-    const percent = Math.round((current / total) * 100);
+
+    const percent = total ? Math.round(((current - 1) / total) * 100): 0;
     const navigate = useNavigate();
+
     return (
         <Box mb={10} gap={2} w="100%" display={"flex"} flexDirection={"row"} alignItems="center" position="relative">
-            <Button size="sm" variant="ghost" colorScheme="gray" onClick={() => navigate("/")} > X </Button>
-            <Progress value={percent} size="sm" borderRadius="md" display={"block"} width={"90%"} />
-            <Text fontSize="sm">{percent}%</Text>
+            <Button size="lg" padding={0} variant="plain" colorScheme="gray" onClick={() => navigate("/")} > <i className="fa-regular fa-circle-xmark"></i> </Button>
+            {/* <Progress value={percent} size="sm" borderRadius="md" display={"block"} width={"90%"} /> */}
+            <Progress
+                value={percent}
+                size="sm"
+                borderRadius="md"
+                bg="gray.200"
+                width={"90%"}
+                colorScheme="teal"
+            />
+            <Text color={"gold"} fontSize="sm"><i className="fa-solid fa-infinity"></i> </Text>
         </Box>
     );
 }

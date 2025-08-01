@@ -1,47 +1,69 @@
 // src/context/AuthContext.tsx
 import {
-    createContext, useContext, useEffect, useState, type ReactNode,
+    createContext,
+    useContext,
+    useEffect,
+    useState,
+    type ReactNode,
 } from "react";
-import { supabase } from "../lib/supabase";
 import type { Session } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
+
+interface Profile {
+    full_name: string;
+    avatar_url: string;
+}
 
 interface AuthCtx {
     session: Session | null;
-    loading: boolean;
+    profile: Profile | null;
 }
 
-const Ctx = createContext<AuthCtx | null>(null);
+const AuthCtx = createContext<AuthCtx | undefined>(undefined);
 
 export const useAuth = () => {
-    const c = useContext(Ctx);
-    if (!c) throw new Error("useAuth must be inside <AuthProvider>");
-    return c;
+    const ctx = useContext(AuthCtx);
+    if (!ctx) throw new Error("useAuth debe usarse dentro de <AuthProvider>");
+    return ctx;
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
     const [session, setSession] = useState<Session | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [profile, setProfile] = useState<Profile | null>(null);
 
-    // ① Obtiene la sesión que ya pudo haber quedado guardada
+    // Cada vez que cambia la sesión
     useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setSession(session ?? null);
-            setLoading(false);
+        supabase.auth.getSession().then(({ data }) => {
+            setSession(data.session);
+            if (data.session) fetchProfile(data.session.user.id);
         });
 
-        // ② Se mantiene escuchando cambios (LOGIN, LOGOUT, REFRESH…)
         const {
             data: { subscription },
-        } = supabase.auth.onAuthStateChange((_event, sess) => {
-            setSession(sess);
+        } = supabase.auth.onAuthStateChange((_evt, newSession) => {
+            setSession(newSession);
+            if (newSession) fetchProfile(newSession.user.id);
+            else setProfile(null);
         });
 
         return () => subscription.unsubscribe();
     }, []);
 
+    const fetchProfile = async (userId: string) => {
+        // Supón que guardas tu perfil en la tabla "kids" vinculada a auth.users.id
+        const { data, error } = await supabase
+            .from("kids")
+            .select("alias, avatar_url")
+            .eq("parent_uid", userId)
+            .single();
+        if (!error && data) {
+            setProfile({ full_name: data.alias, avatar_url: data.avatar_url });
+        }
+    };
+
     return (
-        <Ctx.Provider value={{ session, loading }}>
+        <AuthCtx.Provider value={{ session, profile }}>
             {children}
-        </Ctx.Provider>
+        </AuthCtx.Provider>
     );
 }
