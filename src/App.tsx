@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import ProfileSetup from "./pages/ProfileSetup";
 
 
+
 export default function App() {
 
   const [initializing, setInitializing] = useState(true);

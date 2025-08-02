@@ -10,6 +10,7 @@ import BottomNav from "../components/BottomNav";
 import ProgressBar from "../components/ProgressBar";
 import { useBadges } from "../context/BadgeContext";
 
+
 export default function Level() {
     const { grantBadge } = useBadges();
     const navigate = useNavigate();
