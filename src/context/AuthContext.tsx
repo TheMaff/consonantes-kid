@@ -10,12 +10,6 @@ import {
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 
-interface Profile {
-    full_name: string;
-    avatar_url: string;
-}
-
-
 interface AuthCtx {
     session: Session | null;
 
