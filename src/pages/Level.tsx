@@ -26,8 +26,21 @@ export default function Level() {
 
     /* si algo no cuadra, vuelve al mapa ------------------------- */
     if (!currentCons || !current) return <Navigate to="/" />;
-
-    useEffect(() => setShowNext(false), [current.id]);
+    
+    const speak = (text: string) => {
+        if ("speechSynthesis" in window) {
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = "es-US"; // Configurar el idioma a español
+            utter.rate = 0.7; // Velocidad normal
+            utter.pitch = 0.8; // Ajuste de tono
+            window.speechSynthesis.speak(utter);
+        }
+    };
+    
+    useEffect(() => {
+        setShowNext(false);
+        speak(current.text)
+        }, [current.id]);
 
     /* cuando el usuario ordena bien las letras ------------------ */
     const handleDone = async () => {
@@ -65,7 +78,7 @@ export default function Level() {
     /* vista ----------------------------------------------------- */
     return (
         <Box p={6} textAlign="center">
-            <Flex gap="4" direction="row" align="center">
+            <Flex justify="center" gap="4" direction="row" align="center">
                 <ProgressBar current={currentCons.words.findIndex(w => w.id === current.id) + 1} total={currentCons.words.length}/>
             </Flex>
 
@@ -77,6 +90,8 @@ export default function Level() {
                     boxSize="200px"
                     mb={6}
                     objectFit="contain"
+                    onClick={() => speak(current.text)}
+                    cursor="pointer"
                 />
 
                 <DragLetters key={current.id} word={current.text} onDone={handleDone} />
