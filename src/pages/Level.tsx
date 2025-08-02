@@ -47,7 +47,7 @@ export default function Level() {
         // 3️⃣ Mostrar botón "Siguiente"
         setShowNext(true);
     };
-
+  
     const goNext = () => {
         const idx = currentCons.words.findIndex((w) => w.id === current.id);
         const nextIdx = idx + 1;

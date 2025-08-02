@@ -1,4 +1,5 @@
 // src/components/BottomNav.tsx
+
 import { Box, Flex, Avatar, Text, HStack, Icon, Button } from "@chakra-ui/react";
 import { useAuth } from "../context/AuthContext";
 import { useBadges } from "../context/BadgeContext";
@@ -7,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function BottomNav() {
     const { session } = useAuth();
     const { badges } = useBadges();
+
     const navigate = useNavigate();
 
 
@@ -14,9 +16,7 @@ export default function BottomNav() {
     const name = session?.user.user_metadata.full_name ?? session?.user.email;
     const email = session?.user.email;
     const avatar = session?.user.user_metadata.avatar_url;
-    console.log('[BottomNav] badges:', badges, useBadges().badges);
-    
-
+  
     return (
         <Box
             as="nav"
@@ -28,6 +28,7 @@ export default function BottomNav() {
         >
             <Flex align="center" justify="space-between" px={4}>
                 {/* Avatar + nombre */}
+
                 <Button variant="plain" gap={2} padding={0} onClick={() => { navigate("/profile") }}>
                     <Avatar size="sm" src={avatar || undefined} name={name ?? ""} />
                     <Flex direction="column" align={"flex-start"} maxW="150px">

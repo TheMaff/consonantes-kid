@@ -35,7 +35,6 @@ export function BadgeProvider({ children }: { children: ReactNode }) {
         const userResp = await supabase.auth.getUser();
         const user = userResp.data.user;
         if (!user) return;
-
         const { data: rows, error } = await supabase
             .from("user_badges")
             .select("id, level_id, earned_at")
