@@ -1,4 +1,5 @@
 // src/context/AuthContext.tsx
+
 import {
     createContext,
     useContext,
@@ -9,61 +10,81 @@ import {
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 
-interface Profile {
-    full_name: string;
-    avatar_url: string;
-}
-
 interface AuthCtx {
     session: Session | null;
-    profile: Profile | null;
+
+    profile: {
+        full_name: string;
+        avatar_url: string;
+    };
+    refreshProfile: () => Promise<void>;
 }
 
-const AuthCtx = createContext<AuthCtx | undefined>(undefined);
+const AuthContext = createContext<AuthCtx | undefined>(undefined);
 
 export const useAuth = () => {
-    const ctx = useContext(AuthCtx);
+    const ctx = useContext(AuthContext);
+
     if (!ctx) throw new Error("useAuth debe usarse dentro de <AuthProvider>");
     return ctx;
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
     const [session, setSession] = useState<Session | null>(null);
-    const [profile, setProfile] = useState<Profile | null>(null);
+    const [profile, setProfile] = useState<{
+        full_name: string;
+        avatar_url: string;
+    }>({
+        full_name: "",
+        avatar_url: "",
+    });
 
-    // Cada vez que cambia la sesión
     useEffect(() => {
+        // 1️⃣ Estado inicial
         supabase.auth.getSession().then(({ data }) => {
             setSession(data.session);
-            if (data.session) fetchProfile(data.session.user.id);
+            const user = data.session?.user;
+            if (user) {
+                setProfile({
+                    full_name: user.user_metadata.full_name ?? "",
+                    avatar_url: user.user_metadata.avatar_url ?? "",
+                });
+            }
         });
 
+        // 2️⃣ Suscripción a cambios de auth
         const {
             data: { subscription },
-        } = supabase.auth.onAuthStateChange((_evt, newSession) => {
+        } = supabase.auth.onAuthStateChange((_, newSession) => {
             setSession(newSession);
-            if (newSession) fetchProfile(newSession.user.id);
-            else setProfile(null);
+            const user = newSession?.user;
+            setProfile({
+                full_name: user?.user_metadata.full_name ?? "",
+                avatar_url: user?.user_metadata.avatar_url ?? "",
+            });
         });
 
-        return () => subscription.unsubscribe();
+        return () => {
+            subscription.unsubscribe();
+        };
     }, []);
 
-    const fetchProfile = async (userId: string) => {
-        // Supón que guardas tu perfil en la tabla "kids" vinculada a auth.users.id
-        const { data, error } = await supabase
-            .from("kids")
-            .select("alias, avatar_url")
-            .eq("parent_uid", userId)
-            .single();
-        if (!error && data) {
-            setProfile({ full_name: data.alias, avatar_url: data.avatar_url });
+    // 3️⃣ Fuerza una recarga desde el servidor (útil tras actualizar metadata)
+    const refreshProfile = async () => {
+        const {
+            data: { user },
+        } = await supabase.auth.getUser();
+        if (user) {
+            setProfile({
+                full_name: user.user_metadata.full_name ?? "",
+                avatar_url: user.user_metadata.avatar_url ?? "",
+            });
         }
     };
 
     return (
-        <AuthCtx.Provider value={{ session, profile }}>
+        <AuthContext.Provider value={{ session, profile, refreshProfile }}>
             {children}
-        </AuthCtx.Provider>
+        </AuthContext.Provider>
     );
 }

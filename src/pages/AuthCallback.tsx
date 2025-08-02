@@ -27,7 +27,7 @@ export default function AuthCallback() {
             }
           
             // 2.  Redirigimos: si la sesión existe AuthProvider lo sabrá
-            navigate("/", { replace: true });
+            navigate("/profile-setup", { replace: true });
         })();
     }, [navigate]);
 

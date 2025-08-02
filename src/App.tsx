@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Splash from "./pages/Splash";
 import LevelComplete from "./pages/LevelComplete";
 import Profile from "./pages/Profile";
+import ProfileSetup from "./pages/ProfileSetup";
 
 
 
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/level/:consonant/:word" element={<Level />} />
           <Route path="/level-complete" element={<LevelComplete />} />
+          <Route path="/profile-setup" element={<ProfileSetup />} />
           <Route path="/profile" element={<Profile />} />
 
           <Route path="*" element={<Home />} />

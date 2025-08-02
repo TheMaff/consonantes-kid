@@ -30,28 +30,35 @@ export default function Level() {
     useEffect(() => setShowNext(false), [current.id]);
 
     /* cuando el usuario ordena bien las letras ------------------ */
-    const handleDone = () => {
-        completeWord(currentCons.id, currentCons.words.length)
-            .then(() => setShowNext(true));
-    };
+    const handleDone = async () => {
+        // 1️⃣ Completar la palabra
+        await completeWord(currentCons.id, currentCons.words.length);
 
-    /* botón SIGUIENTE ------------------------------------------ */
-    const goNext = async () => {
+        // 2️⃣ Si era la última palabra del nivel, otorgar medalla
         const idx = currentCons.words.findIndex((w) => w.id === current.id);
-        const nextIdx = idx + 1;
-
-        if (nextIdx < currentCons.words.length) {
-            const nextWord = currentCons.words[nextIdx];
-            setShowNext(false);
-            navigate(`/level/${currentCons.id}/${nextWord.id}`);
-        } else {
-            // Última palabra → otorgar medalla y pantalla de fin de nivel
+        if (idx === currentCons.words.length - 1) {
             try {
                 await grantBadge(currentCons.id);
             } catch (err) {
                 console.error("Error al otorgar medalla:", err);
             }
-            navigate("/level-complete");            // terminó el nivel
+        }
+
+        // 3️⃣ Mostrar botón "Siguiente"
+        setShowNext(true);
+    };
+  
+    const goNext = () => {
+        const idx = currentCons.words.findIndex((w) => w.id === current.id);
+        const nextIdx = idx + 1;
+
+        if (nextIdx < currentCons.words.length) {
+            // Siguiente palabra
+            const nextWord = currentCons.words[nextIdx];
+            navigate(`/level/${currentCons.id}/${nextWord.id}`);
+        } else {
+            // Nivel completo
+            navigate("/level-complete");
         }
     };
 
