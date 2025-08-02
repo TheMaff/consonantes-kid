@@ -9,8 +9,8 @@ import {
 import { supabase } from "../lib/supabase";
 
 interface Badge {
-    id: string;       // uuid de la tabla
-    level_id: string; // ej. "M"
+    id: string;
+    level_id: string;
     earned_at: string;
 }
 
@@ -20,10 +20,10 @@ interface BadgeContextValue {
     grantBadge: (levelId: string) => Promise<void>;
 }
 
-const BadgeCtx = createContext<BadgeContextValue | undefined>(undefined);
+const BadgeContext = createContext<BadgeContextValue | undefined>(undefined);
 
 export const useBadges = () => {
-    const ctx = useContext(BadgeCtx);
+    const ctx = useContext(BadgeContext);
     if (!ctx) throw new Error("useBadges debe usarse dentro de <BadgeProvider>");
     return ctx;
 };
@@ -32,13 +32,10 @@ export function BadgeProvider({ children }: { children: ReactNode }) {
     const [badges, setBadges] = useState<Badge[]>([]);
 
     const loadBadges = async () => {
-        // 1️⃣ Obtenemos el user_id de la sesión
-        const {
-            data: { user },
-        } = await supabase.auth.getUser();
+        const userResp = await supabase.auth.getUser();
+        const user = userResp.data.user;
         if (!user) return;
 
-        // 2️⃣ Cargamos sólo id, level_id y earned_at
         const { data: rows, error } = await supabase
             .from("user_badges")
             .select("id, level_id, earned_at")
@@ -48,7 +45,7 @@ export function BadgeProvider({ children }: { children: ReactNode }) {
         if (error) throw error;
 
         setBadges(
-            rows.map((r) => ({
+            (rows || []).map((r: any) => ({
                 id: r.id,
                 level_id: r.level_id,
                 earned_at: r.earned_at,
@@ -57,18 +54,38 @@ export function BadgeProvider({ children }: { children: ReactNode }) {
     };
 
     const grantBadge = async (levelId: string) => {
-        // obtenemos user_id
-        const {
-            data: { user },
-            error: userErr,
-        } = await supabase.auth.getUser();
-        if (userErr || !user) throw userErr || new Error("No user");
-        // insertamos
-        const { error } = await supabase.from("user_badges").insert({
+        const userResp = await supabase.auth.getUser();
+        const user = userResp.data.user;
+        if (!user) throw new Error("No hay usuario autenticado");
+
+        // 1️⃣ Comprobar existencia previa
+        const { data: existing, error: fetchErr } = await supabase
+            .from("user_badges")
+            .select("id")
+            .eq("user_id", user.id)
+            .eq("level_id", levelId);
+
+        if (fetchErr) throw fetchErr;
+        if (existing && existing.length > 0) {
+            // Ya tiene la medalla: no insertar de nuevo
+            return;
+        }
+
+        // 2️⃣ Insertar la nueva medalla
+        const { error: insertErr } = await supabase.from("user_badges").insert({
             user_id: user.id,
             level_id: levelId,
         });
-        if (error) throw error;
+
+        // Si el constraint UNIQUE se disparara igual, captura el error y sigue sin duplicar
+        if (insertErr && insertErr.code === "23505") {
+            // duplicate key
+            console.warn("Medalla ya existe, duplicado ignorado");
+        } else if (insertErr) {
+            throw insertErr;
+        }
+
+        // 3️⃣ Recargar medallas para actualizar UI
         await loadBadges();
     };
 
@@ -77,8 +94,8 @@ export function BadgeProvider({ children }: { children: ReactNode }) {
     }, []);
 
     return (
-        <BadgeCtx.Provider value={{ badges, loadBadges, grantBadge }}>
+        <BadgeContext.Provider value={{ badges, loadBadges, grantBadge }}>
             {children}
-        </BadgeCtx.Provider>
+        </BadgeContext.Provider>
     );
 }
