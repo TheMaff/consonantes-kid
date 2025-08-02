@@ -7,11 +7,17 @@ import {
     useState,
     type ReactNode,
 } from "react";
-import { supabase } from "../lib/supabase";
 import type { Session } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
+
+interface Profile {
+    full_name: string;
+    avatar_url: string;
+}
 
 interface AuthCtx {
     session: Session | null;
+
     profile: {
         full_name: string;
         avatar_url: string;
@@ -23,6 +29,7 @@ const AuthContext = createContext<AuthCtx | undefined>(undefined);
 
 export const useAuth = () => {
     const ctx = useContext(AuthContext);
+
     if (!ctx) throw new Error("useAuth debe usarse dentro de <AuthProvider>");
     return ctx;
 };

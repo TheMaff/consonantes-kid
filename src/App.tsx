@@ -55,7 +55,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/level/:consonant/:word" element={<Level />} />
           <Route path="/level-complete" element={<LevelComplete />} />
-
           <Route path="/profile-setup" element={<ProfileSetup />} />
           <Route path="/profile" element={<Profile />} />
 
