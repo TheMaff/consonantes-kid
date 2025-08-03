@@ -1,9 +1,14 @@
 import { Image, Heading, Box, Flex, Button, VStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
+import { useEffect } from "react";
+import fanfare from "/public/sounds/fanfare.mp3";
 
 export default function LevelComplete() {
     const navigate = useNavigate();
+    useEffect(() => {
+        new Audio(fanfare).play();
+    }, []);
 
     return (
         <>
@@ -32,3 +37,4 @@ export default function LevelComplete() {
 
     );
 }
+    
