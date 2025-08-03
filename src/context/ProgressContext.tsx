@@ -1,3 +1,4 @@
+// src/context/ProgressContext.tsx
 import {
     createContext,
     useContext,
@@ -8,87 +9,98 @@ import {
 import { supabase } from "../lib/supabase";
 import { consonantList } from "../data/consonants";
 
-type Row = {
+type ProgressRow = {
     consonant: string;
     word_index: number;
     done: boolean;
 };
 
+type ProgressState = Record<string, ProgressRow>;
+
 interface ProgressCtx {
-    progress: Record<string, Row>;
-    isUnlocked: (c: string, idx: number) => boolean;
-    completeWord: (c: string, total: number) => Promise<void>;
+    progress: ProgressState;
+    isUnlocked: (consonantId: string, idx: number) => boolean;
+    completeWord: (
+        consonantId: string,
+        totalWords: number
+    ) => Promise<void>;
 }
 
-const Ctx = createContext<ProgressCtx | null>(null);
+const ProgressContext = createContext<ProgressCtx | undefined>(undefined);
 
 export const useProgress = () => {
-    const ctx = useContext(Ctx);
-    if (!ctx) throw new Error("useProgress must be inside ProgressProvider");
+    const ctx = useContext(ProgressContext);
+    if (!ctx) throw new Error("useProgress debe usarse dentro de <ProgressProvider>");
     return ctx;
 };
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
-    const [progress, setProgress] = useState<Record<string, Row>>({});
+    const [progress, setProgress] = useState<ProgressState>({});
 
-    /* ───── carga usuario + progreso ───── */
+    /** 1️⃣ Carga inicial desde Supabase */
     useEffect(() => {
-        let isMounted = true;
         (async () => {
-            const { data: { user }, error: uErr } = await supabase.auth.getUser();
-            if (uErr || !user) return;
-
-            const { data, error } = await supabase
+            const { data: rows, error } = await supabase
                 .from("user_progress")
-                .select("*")
-                .eq("user_id", user.id);
-
-            if (!isMounted) return;
-            if (error) { console.error(error); return; }
-
-            const map: Record<string, Row> = {};
-            data?.forEach((row) => (map[row.consonant] = row as Row));
+                .select("*");
+            if (error) {
+                console.error(error);
+                return;
+            }
+            const map: ProgressState = {};
+            rows?.forEach((r) => {
+                map[r.consonant] = r;
+            });
             setProgress(map);
         })();
-        return () => { isMounted = false; };
     }, []);
 
-    /* ───── helpers ───── */
-    const isUnlocked = (_cons: string, idx: number) => {
-        if (idx === 0) return true;
-        const prev = consonantList[idx - 1];
-        return progress[prev]?.done ?? false;
-    };
-
-    const completeWord = async (consonant: string, total: number) => {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) return;
-
-        const current = progress[consonant] ?? {
-            user_id: user.id,
-            consonant,
+    /** 2️⃣ Marcar la siguiente palabra (y nivel) como completado */
+    const completeWord = async (
+        consonantId: string,
+        totalWords: number
+    ) => {
+        const current = progress[consonantId] || {
+            consonant: consonantId,
             word_index: 0,
             done: false,
         };
-
         const nextIndex = current.word_index + 1;
-        const done = nextIndex === total;
+        const done = nextIndex >= totalWords;
 
+        // upsert a user_progress (supabase-js v2)
         const { error } = await supabase
             .from("user_progress")
-            .upsert({ ...current, word_index: nextIndex, done });
+            .upsert({
+                user_id: (await supabase.auth.getUser()).data.user!.id,
+                consonant: consonantId,
+                word_index: nextIndex,
+                done,
+            });
+        if (error) throw error;
 
-        if (error) { console.error(error); return; }
-
-        setProgress((p) => ({
-            ...p,
-            [consonant]: { ...current, word_index: nextIndex, done },
+        setProgress((prev) => ({
+            ...prev,
+            [consonantId]: { consonant: consonantId, word_index: nextIndex, done },
         }));
     };
 
+    /**
+     * 3️⃣ Lógica de desbloqueo:
+     *    - El idx=0 (primera consonante) siempre desbloqueada.
+     *    - Cualquier idx>0 solo si la anterior .done === true.
+     */
+    const isUnlocked = (_cons: string, idx: number) => {
+        if (idx === 0) return true;
+        const prevCons = consonantList[idx - 1];
+        return progress[prevCons]?.done === true;
+    };
+
     return (
-        <Ctx.Provider value={{ progress, isUnlocked, completeWord }}>
+        <ProgressContext.Provider
+            value={{ progress, isUnlocked, completeWord }}
+        >
             {children}
-        </Ctx.Provider>
+        </ProgressContext.Provider>
     );
 }

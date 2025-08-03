@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 // Lista de avatares de ejemplo (puedes apuntar a tu storage)
 const AVATARS = [
+    "/assets/avatars/avatar17.png",
     "/assets/avatars/avatar01.png",
     "/assets/avatars/avatar02.png",
     "/assets/avatars/avatar03.png",
