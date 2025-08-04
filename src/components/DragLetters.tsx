@@ -16,7 +16,6 @@ import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import correct from "/public/sounds/collect-points.mp3";
 import errorSound from "/public/sounds/error.mp3"
 
-
 interface Props {
   word: string;
   onDone: () => void;
@@ -60,10 +59,12 @@ export default function DragLetters({ word, onDone }: Props) {
       return;
     }
     const wrong = new Set<number>();
+
     filled.forEach((l, i) => {
       if (l !== letters[i]) wrong.add(i);
     });
     setErrorSlots(wrong);
+
     if (wrong.size > 0) {
       const audio = new Audio(errorSound);
       audio.play().catch(() => {
@@ -79,7 +80,6 @@ export default function DragLetters({ word, onDone }: Props) {
         onDone();
     } else {
       console.log("Incorrecto, slots erróneos:", Array.from(wrong));
-      
     }
   };
 
@@ -114,7 +114,7 @@ export default function DragLetters({ word, onDone }: Props) {
     const tileId = active.id.toString();
     const targetId = over.id.toString(); // "bank" o índice
     const nextPos: Position = targetId === "bank" ? "bank" : Number(targetId);
-
+    
     setTiles((prev) => {
       const next = [...prev];
       const srcIdx = next.findIndex((t) => t.id === tileId);
