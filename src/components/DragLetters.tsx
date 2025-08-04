@@ -14,6 +14,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import correct from "/public/sounds/collect-points.mp3";
+import errorSound from "/public/sounds/error.mp3"
 
 
 interface Props {
@@ -63,11 +64,22 @@ export default function DragLetters({ word, onDone }: Props) {
       if (l !== letters[i]) wrong.add(i);
     });
     setErrorSlots(wrong);
+    if (wrong.size > 0) {
+      const audio = new Audio(errorSound);
+      audio.play().catch(() => {
+        console.error("Error al reproducir el sonido de error");
+      }
+      );
+      return;
+    }
 
     if (wrong.size === 0) {
         setIsCompleted(true);
         new Audio(correct).play();
         onDone();
+    } else {
+      console.log("Incorrecto, slots erróneos:", Array.from(wrong));
+      
     }
   };
 
