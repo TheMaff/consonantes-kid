@@ -59,11 +59,10 @@ export default function DragLetters({ word, onDone }: Props) {
       return;
     }
     const wrong = new Set<number>();
-    
+
     filled.forEach((l, i) => {
       if (l !== letters[i]) wrong.add(i);
     });
-    
     setErrorSlots(wrong);
 
     if (wrong.size > 0) {
@@ -115,7 +114,7 @@ export default function DragLetters({ word, onDone }: Props) {
     const tileId = active.id.toString();
     const targetId = over.id.toString(); // "bank" o índice
     const nextPos: Position = targetId === "bank" ? "bank" : Number(targetId);
-
+    
     setTiles((prev) => {
       const next = [...prev];
       const srcIdx = next.findIndex((t) => t.id === tileId);
