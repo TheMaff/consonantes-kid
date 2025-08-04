@@ -2,21 +2,26 @@ name: CI
 
 on:
     push:
-        branches: [main, develop]
+        branches: [main, feature/**]
     pull_request:
-        branches: [main, develop]
+        branches: [main]
 
 jobs: 
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: 18
+          cache: pnpm
+
+      - name: Enable Corepack (pnpm)
+        run: corepack enable
 
       - name: Install dependencies
         run: pnpm install
