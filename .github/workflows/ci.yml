@@ -24,11 +24,10 @@ jobs:
         run: corepack enable
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: corepack prepare pnpm@latest --activate
 
       - name: Install dependencies
         run: pnpm install
-
 
       - name: Lint
         run: pnpm run lint
