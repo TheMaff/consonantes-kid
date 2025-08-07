@@ -26,9 +26,6 @@ jobs:
         - name: Install pnpm
           run: corepack prepare pnpm@latest --activate
 
-        - name: Add pnpm to PATH
-          run: echo "$(corepack where pnpm)/" >> $GITHUB_PATH
-
         - name: Install dependencies
           run: pnpm install
 
