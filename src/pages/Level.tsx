@@ -24,9 +24,6 @@ export default function Level() {
     const currentCons = consonants.find((c) => c.id === consonant);
     const current = currentCons?.words.find((w) => w.id === word);
 
-    /* si algo no cuadra, vuelve al mapa ------------------------- */
-    if (!currentCons || !current) return <Navigate to="/" />;
-    
     const speak = (text: string) => {
         if ("speechSynthesis" in window) {
             const utter = new SpeechSynthesisUtterance(text);
@@ -36,11 +33,17 @@ export default function Level() {
             window.speechSynthesis.speak(utter);
         }
     };
-    
+
+    // Restablece el botón "Siguiente" y pronuncia la palabra
+    // cada vez que cambia la palabra actual.
     useEffect(() => {
+        if (!current) return;
         setShowNext(false);
-        speak(current.text)
-        }, [current.id]);
+        speak(current.text);
+    }, [current]);
+
+    /* si algo no cuadra, vuelve al mapa ------------------------- */
+    if (!currentCons || !current) return <Navigate to="/" />;
 
     /* cuando el usuario ordena bien las letras ------------------ */
     const handleDone = async () => {
