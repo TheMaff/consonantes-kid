@@ -11,26 +11,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+        - name: Checkout
+          uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+            cache: pnpm
 
-      - name: Enable Corepack (pnpm)
-        run: corepack enable
+        - name: Enable Corepack (pnpm)
+          run: corepack enable
 
-      - name: Install dependencies
-        run: pnpm install
+        - name: Install pnpm
+          run: corepack prepare pnpm@latest --activate
 
-      - name: Lint
-        run: pnpm run lint
+        - name: Add pnpm to PATH
+          run: echo "$(corepack where pnpm)/" >> $GITHUB_PATH
 
-      - name: Type-check & Build
-        run: pnpm run build
+        - name: Install dependencies
+          run: pnpm install
 
-      - name: Run unit tests
-        run: pnpm run test
+        - name: Lint
+          run: pnpm run lint
+
+        - name: Type-check & Build
+          run: pnpm run build
+
+        - name: Run unit tests
+          run: pnpm run test
