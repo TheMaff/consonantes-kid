@@ -9,6 +9,7 @@ import { useProgress } from "../context/ProgressContext";
 import BottomNav from "../components/BottomNav";
 import ProgressBar from "../components/ProgressBar";
 import { useBadges } from "../context/BadgeContext";
+import { useLives } from "../context/LivesContext";
 
 
 export default function Level() {
@@ -18,6 +19,7 @@ export default function Level() {
 
     const { consonants } = useData();
     const { completeWord } = useProgress();
+    const { lives, loseLife } = useLives();
     const [showNext, setShowNext] = useState(false);
 
     /* objeto consonante y palabra actuales ---------------------- */
@@ -97,7 +99,15 @@ export default function Level() {
                     cursor="pointer"
                 />
 
-                <DragLetters key={current.id} word={current.text} onDone={handleDone} />
+                <DragLetters 
+                    key={current.id}
+                    word={current.text}
+                    onDone={handleDone}
+                    onError={() => {
+                        loseLife();
+                        if (lives - 1 <= 0) navigate("/level-incorrect");
+                    }}
+                />
 
                 {showNext && (
                     <Button mt={6} colorScheme="teal" onClick={goNext}>

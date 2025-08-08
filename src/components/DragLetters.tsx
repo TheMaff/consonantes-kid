@@ -19,6 +19,7 @@ import errorSound from "/public/sounds/error.mp3"
 interface Props {
   word: string;
   onDone: () => void;
+  onError?: () => void;
 }
 type Position = "bank" | number;
 interface Tile {
@@ -27,7 +28,7 @@ interface Tile {
   pos: Position;
 }
 
-export default function DragLetters({ word, onDone }: Props) {
+export default function DragLetters({ word, onDone, onError }: Props) {
   const letters = word.split("");
 
   // 1️⃣ inicializa y baraja
@@ -66,18 +67,18 @@ export default function DragLetters({ word, onDone }: Props) {
     setErrorSlots(wrong);
 
     if (wrong.size > 0) {
+      onError?.();
       const audio = new Audio(errorSound);
       audio.play().catch(() => {
         console.error("Error al reproducir el sonido de error");
-      }
-      );
+      });
       return;
     }
 
     if (wrong.size === 0) {
-        setIsCompleted(true);
-        new Audio(correct).play();
-        onDone();
+      setIsCompleted(true);
+      new Audio(correct).play();
+      onDone();
     } else {
       console.log("Incorrecto, slots erróneos:", Array.from(wrong));
     }
