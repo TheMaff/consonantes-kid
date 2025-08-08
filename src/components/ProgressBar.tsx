@@ -1,4 +1,4 @@
-import { Progress, HStack, Icon, Box, Text, Button } from "@chakra-ui/react";
+import { Progress, HStack, Icon, Box, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
 
