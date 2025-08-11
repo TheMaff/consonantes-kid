@@ -29,13 +29,13 @@ export default function LevelIncorrect() {
                 <Image
                     src="https://cdn-icons-png.flaticon.com/512/564/564619.png"
                     alt="Error"
-                    boxSize="150px"
+                    boxSize="100px"
                 />
                 <Heading>¡oh-oh!</Heading>
                 <Image
                     src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/error.png"
                     alt="¡Nivel Incorrecto!"
-                    boxSize="100px"
+                    boxSize="250px"
                 />
                 <Button colorScheme="teal" onClick={handleRestart}>
                     Volver al inicio
