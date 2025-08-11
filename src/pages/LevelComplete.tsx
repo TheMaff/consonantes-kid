@@ -3,12 +3,20 @@ import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
 import { useEffect } from "react";
 import fanfare from "/public/sounds/fanfare.mp3";
+import { useLives } from "../context/LivesContext";
 
 export default function LevelComplete() {
     const navigate = useNavigate();
     useEffect(() => {
         new Audio(fanfare).play();
     }, []);
+
+    const { resetLives } = useLives();
+
+    const handleRestart = () => {
+        resetLives();
+        navigate("/");
+    };
 
     return (
         <>
@@ -29,7 +37,7 @@ export default function LevelComplete() {
                     alt="¡Nivel completado!"
                     boxSize="100px"
                 />
-                <Button colorScheme="teal" onClick={() => navigate("/")}>
+                <Button colorScheme="teal" onClick={handleRestart}>
                     Continuar
                 </Button>
             </VStack>
