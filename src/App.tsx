@@ -1,13 +1,10 @@
 // src/App.tsx
-import type { Session } from "@supabase/supabase-js";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { supabase } from "./lib/supabase";
-// import { useAuth } from "./context/AuthContext";
+import { Center, Spinner } from '@chakra-ui/react';
+import { useAuth } from "./context/AuthContext";
 import Home from "./pages/Home";
 import Level from "./pages/Level";
 import Login from "./pages/Login";
-import AuthCallback from "./pages/AuthCallback";
-import { useEffect, useState } from "react";
 import Splash from "./pages/Splash";
 import LevelComplete from "./pages/LevelComplete";
 import LevelIncorrect from "./pages/LevelIncorrect";
@@ -18,38 +15,24 @@ import ProfileSetup from "./pages/ProfileSetup";
 
 export default function App() {
 
-  const [initializing, setInitializing] = useState(true);
-  const [session, setSession] = useState<Session | null>(null);
+  // const [initializing, setInitializing] = useState(true);
+  // const [session, setSession] = useState<Session | null>(null);
+  const { session, loading } = useAuth();
   // const { session } = useAuth();
 
-  // ① carga inicial
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => { 
-      setSession(data.session);
-      setInitializing(false);
-    }
+  if (loading) {
+    return (
+      <>
+        <Center h="100vh" bg="blue.400">
+          <Spinner thickness="4px" speed="0.65s" emptyColor="blue.200" color="white" size="xl" />
+          <Splash />
+        </Center>
+      </>
     );
-
-    // ② cambios posteriores
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, newSession) =>
-      setSession(newSession)
-      );
-    console.log("[App] onAuthStateChange subscription:", subscription);
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  console.log("[App] session:", session);
-
-  if (initializing) return <Splash />;
+  }
 
   return (
     <Routes>
-      {/* ruta pública */}
-      <Route path="/auth/callback" element={<AuthCallback />} />
-
       {/* rutas privadas */}
       {session ? (
         <>
@@ -59,8 +42,8 @@ export default function App() {
           <Route path="/level-incorrect" element={<LevelIncorrect />} />
           <Route path="/profile-setup" element={<ProfileSetup />} />
           <Route path="/profile" element={<Profile />} />
-
-          <Route path="*" element={<Home />} />
+          
+          <Route path="*" element={<Navigate to="/" replace />} />
         </>
       ) : (
         /* si NO hay sesión, todo te manda al login */
