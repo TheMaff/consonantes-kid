@@ -17,29 +17,25 @@ import { BadgeProvider } from "./context/BadgeContext";
 console.log("[main] rendering");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  
+
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <ProgressProvider>
-        <LivesProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <DataProvider>
+            <ProgressProvider>
+              <BadgeProvider>
+                <LivesProvider>
 
+                    <App />
 
-        <BrowserRouter>
-          <AuthProvider>
-            <BadgeProvider>
-
-              <DataProvider>
-                <App />
-              </DataProvider>
-              
-            </BadgeProvider>
-          </AuthProvider>
-        </BrowserRouter>
-
-        </LivesProvider>
-      </ProgressProvider>
+                </LivesProvider>
+              </BadgeProvider>
+            </ProgressProvider>
+          </DataProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>
+
 );
-
-

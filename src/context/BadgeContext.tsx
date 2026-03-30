@@ -6,10 +6,12 @@ import {
     useState,
     type ReactNode,
 } from "react";
-import { supabase } from "../lib/supabase";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { db } from "../lib/firebase";
+import { useAuth } from "./AuthContext";
 
 interface Badge {
-    id: string;
+    id: string; // En Firestore usaremos el levelId como ID del documento
     level_id: string;
     earned_at: string;
 }
@@ -29,68 +31,63 @@ export const useBadges = () => {
 };
 
 export function BadgeProvider({ children }: { children: ReactNode }) {
+    const { user } = useAuth();
     const [badges, setBadges] = useState<Badge[]>([]);
 
     const loadBadges = async () => {
-        const userResp = await supabase.auth.getUser();
-        const user = userResp.data.user;
-        if (!user) return;
-        const { data: rows, error } = await supabase
-            .from("user_badges")
-            .select("id, level_id, earned_at")
-            .eq("user_id", user.id)
-            .order("earned_at", { ascending: false });
-
-        if (error) throw error;
-
-        setBadges(
-            (rows || []).map((r: any) => ({
-                id: r.id,
-                level_id: r.level_id,
-                earned_at: r.earned_at,
-            }))
-        );
-    };
-
-    const grantBadge = async (levelId: string) => {
-        const userResp = await supabase.auth.getUser();
-        const user = userResp.data.user;
-        if (!user) throw new Error("No hay usuario autenticado");
-
-        // 1️⃣ Comprobar existencia previa
-        const { data: existing, error: fetchErr } = await supabase
-            .from("user_badges")
-            .select("id")
-            .eq("user_id", user.id)
-            .eq("level_id", levelId);
-
-        if (fetchErr) throw fetchErr;
-        if (existing && existing.length > 0) {
-            // Ya tiene la medalla: no insertar de nuevo
+        if (!user) {
+            setBadges([]);
             return;
         }
 
-        // 2️⃣ Insertar la nueva medalla
-        const { error: insertErr } = await supabase.from("user_badges").insert({
-            user_id: user.id,
-            level_id: levelId,
-        });
-
-        // Si el constraint UNIQUE se disparara igual, captura el error y sigue sin duplicar
-        if (insertErr && insertErr.code === "23505") {
-            // duplicate key
-            console.warn("Medalla ya existe, duplicado ignorado");
-        } else if (insertErr) {
-            throw insertErr;
+        try {
+            const badgesRef = collection(db, "users", user.uid, "badges");
+            const snapshot = await getDocs(badgesRef);
+            
+            const loadedBadges: Badge[] = [];
+            snapshot.forEach((docSnap) => {
+                loadedBadges.push(docSnap.data() as Badge);
+            });
+            
+            // Ordenamos por fecha de obtención (del más reciente al más antiguo)
+            loadedBadges.sort((a, b) => new Date(b.earned_at).getTime() - new Date(a.earned_at).getTime());
+            
+            setBadges(loadedBadges);
+        } catch (error) {
+            console.error("Error cargando medallas:", error);
         }
-
-        // 3️⃣ Recargar medallas para actualizar UI
-        await loadBadges();
     };
 
+    const grantBadge = async (levelId: string) => {
+        if (!user) throw new Error("No hay usuario autenticado para otorgar la medalla");
+
+        try {
+            // Creamos la referencia al documento de la medalla. 
+            // Usar levelId como ID del documento evita duplicados automáticamente en Firestore.
+            const badgeRef = doc(db, "users", user.uid, "badges", levelId);
+            
+            const newBadge: Badge = {
+                id: levelId,
+                level_id: levelId,
+                earned_at: new Date().toISOString()
+            };
+
+            // setDoc creará el documento o lo sobrescribirá (lo cual es seguro y evita errores de duplicación)
+            await setDoc(badgeRef, newBadge);
+            
+            // Recargamos las medallas para actualizar la UI (tu Perfil)
+            await loadBadges();
+            
+        } catch (error) {
+            console.error("Error al otorgar medalla:", error);
+            throw error;
+        }
+    };
+
+    // Cargar medallas automáticamente cuando cambia el usuario
     useEffect(() => {
-        loadBadges().catch(console.error);
-    }, []);
+        loadBadges();
+    }, [user]);
 
     return (
         <BadgeContext.Provider value={{ badges, loadBadges, grantBadge }}>
