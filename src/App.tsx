@@ -23,7 +23,7 @@ export default function App() {
   if (loading) {
     return (
       <>
-        <Center h="100vh" bg="blue.400">
+        <Center h="100vh" bg="#2bb5f8">
           <Spinner thickness="4px" speed="0.65s" emptyColor="blue.200" color="white" size="xl" />
           <Splash />
         </Center>

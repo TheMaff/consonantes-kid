@@ -33,7 +33,7 @@ export default function LevelIncorrect() {
                 />
                 <Heading>¡oh-oh!</Heading>
                 <Image
-                    src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/error.png"
+                    src="/img/error.png"
                     alt="¡Nivel Incorrecto!"
                     boxSize="250px"
                 />
