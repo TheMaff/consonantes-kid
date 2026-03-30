@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, VStack, Heading, Button, Box, Text, useToast, Image } from "@chakra-ui/react";
+import { Container, VStack, Button, Box, Text, useToast, Image } from "@chakra-ui/react";
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom'; // <-- Importamos el router
 
@@ -42,8 +42,6 @@ export default function Login() {
             <Container maxW="md" bg="white" p={10} rounded="3xl" boxShadow="2xl" textAlign="center">
                 <VStack spacing={6}>
 
-                    {/* <Box w="200px" h="200px" bg="blue.50" rounded="3xl" display="flex" alignItems="center" justifyContent="center" boxShadow="inner">
-                        </Box> */}
                         <Image
                             src="/img/Logo.png"
                             alt="MathiLearn Logo"
@@ -53,10 +51,6 @@ export default function Login() {
                         />
 
                     <Box>
-                        {/* <Heading size="2xl" mb={2} fontWeight="black">
-                            <Text as="span" color="black">Mathi</Text>
-                            <Text as="span" color="#2bb5f8">Learn</Text>
-                        </Heading> */}
                         <Text color="gray.500" fontSize="md" fontWeight="medium">
                             Tu aventura de aprendizaje continúa aquí.
                         </Text>
