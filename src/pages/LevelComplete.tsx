@@ -27,13 +27,13 @@ export default function LevelComplete() {
             </Box>
             <VStack spacing={6} mt={12}>
                 <Image
-                    src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/medal.gif"
+                    src="/img/medal.gif"
                     alt="Medalla"
                     boxSize="150px"
                 />
                 <Heading>¡Felicidades!</Heading>
                 <Image
-                    src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/celebration.gif"
+                    src="/img/celebration.png"
                     alt="¡Nivel completado!"
                     boxSize="100px"
                 />

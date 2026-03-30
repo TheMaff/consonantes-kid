@@ -6,13 +6,13 @@ export default function Splash() {
         <VStack spacing={6} h="100vh" justify="center" bg="white">
             
                 <Image
-                    src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/Logo.png"
+                    src="/img/Logo.png"
                     alt="Logo"
                     boxSize="150px"
                     height="188px"
                     />
                 <Image
-                    src="https://ryumkozwsualtqwnfkvy.supabase.co/storage/v1/object/public/contenido/img/Loading.gif"
+                    src="/img/Loading.gif"
                     alt="Cargando…"
                     boxSize="100px"
                     />
