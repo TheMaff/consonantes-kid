@@ -12,6 +12,7 @@ import { LivesProvider } from "./context/LivesContext"; // context for lives man
 import { ProgressProvider } from "./context/ProgressContext";
 import App from "./App";
 import { BadgeProvider } from "./context/BadgeContext";
+import { ScoreProvider } from "./context/ScoreContext";
 
 // const theme = extendTheme({}); // default
 console.log("[main] rendering");
@@ -26,9 +27,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <ProgressProvider>
               <BadgeProvider>
                 <LivesProvider>
+                  <ScoreProvider>
 
                     <App />
-
+                    
+                  </ScoreProvider>
                 </LivesProvider>
               </BadgeProvider>
             </ProgressProvider>

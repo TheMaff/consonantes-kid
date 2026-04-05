@@ -1,4 +1,7 @@
 // src/pages/Level.tsx
+import { useScore } from "../context/ScoreContext";
+import { keyframes } from "@emotion/react";
+
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { Box, Button, Image, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -11,6 +14,12 @@ import ProgressBar from "../components/ProgressBar";
 import { useBadges } from "../context/BadgeContext";
 import { useLives } from "../context/LivesContext";
 
+const floatUp = keyframes`
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+  20% { opacity: 1; transform: translateY(0px) scale(1.2); }
+  80% { opacity: 1; transform: translateY(-30px) scale(1); }
+  100% { opacity: 0; transform: translateY(-50px) scale(1); }
+`;
 
 export default function Level() {
     const { grantBadge } = useBadges();
@@ -35,6 +44,9 @@ export default function Level() {
             window.speechSynthesis.speak(utter);
         }
     };
+
+    const { addPoints } = useScore(); // <-- Traemos la función
+    const [showPoints, setShowPoints] = useState(false); // <-- Estado para la animación
 
     // Restablece el botón "Siguiente" y pronuncia la palabra
     // cada vez que cambia la palabra actual.
@@ -62,11 +74,18 @@ export default function Level() {
             }
         }
 
+        // Sumar 10 puntos a Firestore
+        await addPoints(10);
+
+        // Disparar la animación visual
+        setShowPoints(true);
+
         // 3️⃣ Mostrar botón "Siguiente"
         setShowNext(true);
     };
   
     const goNext = () => {
+        setShowPoints(false);
         const idx = currentCons.words.findIndex((w) => w.id === current.id);
         const nextIdx = idx + 1;
 
@@ -87,7 +106,23 @@ export default function Level() {
                 <ProgressBar current={currentCons.words.findIndex(w => w.id === current.id) + 1} total={currentCons.words.length}/>
             </Flex>
 
-            <Flex gap="4" direction="column" align="center">
+            <Flex gap="4" direction="column" align="center" position="relative">
+
+                {/* Animación del +10 Flotante */}
+                {showPoints && (
+                    <Box
+                        position="absolute"
+                        top="20%"
+                        zIndex="10"
+                        color="yellow.400"
+                        fontSize="5xl"
+                        fontWeight="black"
+                        textShadow="0px 3px 0px #b7791f, 0px 5px 10px rgba(0,0,0,0.3)"
+                        animation={`${floatUp} 1.5s ease-out forwards`}
+                    >
+                        +10
+                    </Box>
+                )}
 
                 <Image
                     src={current.image}
