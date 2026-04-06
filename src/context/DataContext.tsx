@@ -1,11 +1,22 @@
 // src/context/DataContext.tsx
 import { createContext, useContext, useEffect, useState } from "react";
 
+export interface SentencePart {
+    type: "text" | "blank";
+    value: string;
+}
+
 export interface Word {
     id: string;
     text: string;
     image: string;
     alt: string;
+    hints?: string; // Lo dejamos opcional por si las oraciones no llevan pistas
+
+    // 👇 NUEVOS CAMPOS PARA TEXTOS DECODIFICABLES 👇
+    type?: "word" | "sentence"; // Si no viene, asumimos que es "word" normal
+    sentenceParts?: SentencePart[]; // Partes de la oración
+    options?: string[]; // Las "fichas" para arrastrar
 }
 
 export interface Consonant {

@@ -212,7 +212,7 @@
       "words": [
         {
           "id": "sopa",
-          "text": "sopa",
+          "text": "Sopa",
           "image": "/img/words/sopa.png",
           "alt": "Ilustración de sopa",
           "hints": "Empieza con S"
@@ -251,6 +251,20 @@
           "image": "/img/words/sol.png",
           "alt": "Ilustración de sol",
           "hints": "Empieza con S"
+        },
+        {
+          "id": "s_oracion_1",
+          "type": "sentence",
+          "text": "El sapo y la sopa",
+          "image": "/img/words/sapo_sopa.png",
+          "alt": "Un sapo mirando una sopa",
+          "sentenceParts": [
+            { "type": "text", "value": "El " },
+            { "type": "blank", "value": "sapo" },
+            { "type": "text", "value": " y la " },
+            { "type": "blank", "value": "sopa" }
+          ],
+          "options": [ "sapo", "oso", "sopa", "sala" ]
         }
       ]
     },
