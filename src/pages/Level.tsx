@@ -6,6 +6,7 @@ import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { Box, Button, Image, Text, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+import DecodableText from "../components/DecodableText";
 import DragLetters from "../components/DragLetters";
 import { useData } from "../context/DataContext";
 import { useProgress } from "../context/ProgressContext";
@@ -143,33 +144,50 @@ export default function Level() {
                 />
 
                 {!showNext ? (
-                    // 1. Si no ha terminado, mostramos las fichas para jugar
-                    <DragLetters
-                        key={current.id}
-                        word={current.text}
-                        onDone={handleDone}
-                        onError={() => {
-                            loseLife();
-                            if (lives - 1 <= 0) {
-                                discardPoints(); // <-- Si pierde todas las vidas, se van los puntos
-                                navigate("/level-incorrect");
-                            }
-                        }}
-                    />
+                    // ¿Es una oración decodificable?
+                    current.type === "sentence" && current.sentenceParts && current.options ? (
+                        <DecodableText
+                            key={current.id}
+                            parts={current.sentenceParts}
+                            options={current.options}
+                            onDone={handleDone}
+                            onError={() => {
+                                loseLife();
+                                if (lives - 1 <= 0) {
+                                    discardPoints();
+                                    navigate("/level-incorrect");
+                                }
+                            }}
+                        />
+                    ) : (
+                        // ¿O es una palabra normal?
+                        <DragLetters
+                            key={current.id}
+                            word={current.text}
+                            onDone={handleDone}
+                            onError={() => {
+                                loseLife();
+                                if (lives - 1 <= 0) {
+                                    discardPoints();
+                                    navigate("/level-incorrect");
+                                }
+                            }}
+                        />
+                    )
                 ) : (
-                    // 2. Si ya terminó, mostramos la palabra en Letra Ligada gigante
+                    // 3. Vista de Éxito en Letra Ligada (¡Sirve para oraciones también!)
                     <Box
-                            animation={`${fadeIn} 0.6s ease-out forwards`}
+                        animation={`${fadeIn} 0.6s ease-out forwards`}
                         p={0}
                     >
                         <Text
                             fontFamily="'Dancing Script', cursive;"
-                            fontSize="7xl"
-                            color="#319895"
+                            fontSize={{ base: "8xl", md: "7xl" }} // Un poco más adaptable por si la oración es larga
+                            color="#000000"
                             lineHeight="1"
+                            // textTransform={"lowercase"}
                         >
-                            {/* Convertimos a minúsculas porque la letra ligada escolar se enseña así */}
-                            {current.text.toLowerCase()}
+                            {current.text.valueOf()}
                         </Text>
                     </Box>
                 )}
