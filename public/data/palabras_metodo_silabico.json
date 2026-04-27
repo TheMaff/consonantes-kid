@@ -265,6 +265,40 @@
             { "type": "blank", "value": "sopa" }
           ],
           "options": [ "sapo", "oso", "sopa", "sala" ]
+        },
+        {
+          "id": "cadena_sol_sal_mal",
+          "type": "chain",
+          "text": "sol",
+          "image": "/img/words/sol.png",
+          "alt": "Un sol",
+          "hints": "Arma la palabra base",
+          "chainSteps": [
+            {
+              "word": "sal",
+              "image": "/img/words/sal.png",
+              "text": "sal",
+              "changeIndex": 1,
+              "options": [
+                "a",
+                "e",
+                "i",
+                "u"
+              ]
+            },
+            {
+              "word": "mal",
+              "image": "/img/words/mal.png",
+              "text": "mal",
+              "changeIndex": 0,
+              "options": [
+                "m",
+                "p",
+                "t",
+                "s"
+              ]
+            }
+          ]
         }
       ]
     },
