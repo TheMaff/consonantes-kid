@@ -1,5 +1,5 @@
 // src/components/WordChain.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 import {
