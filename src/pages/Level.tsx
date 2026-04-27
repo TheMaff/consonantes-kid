@@ -14,6 +14,7 @@ import BottomNav from "../components/BottomNav";
 import ProgressBar from "../components/ProgressBar";
 import { useBadges } from "../context/BadgeContext";
 import { useLives } from "../context/LivesContext";
+import WordChain from "../components/WordChain";
 
 const floatUp = keyframes`
   0% { opacity: 0; transform: translateY(20px) scale(0.8); }
@@ -36,10 +37,13 @@ export default function Level() {
     const { completeWord } = useProgress();
     const { lives, loseLife } = useLives();
     const [showNext, setShowNext] = useState(false);
+    const [dynamicImage, setDynamicImage] = useState<string>("");
+    const [dynamicText, setDynamicText] = useState<string>("");
 
     /* objeto consonante y palabra actuales ---------------------- */
     const currentCons = consonants.find((c) => c.id === consonant);
     const current = currentCons?.words.find((w) => w.id === word);
+    
 
     const speak = (text: string) => {
         if ("speechSynthesis" in window) {
@@ -59,6 +63,8 @@ export default function Level() {
     useEffect(() => {
         if (!current) return;
         setShowNext(false);
+        setDynamicImage(current.image);
+        setDynamicText(current.text);
         speak(current.text);
     }, [current]);
 
@@ -134,16 +140,35 @@ export default function Level() {
                 )}
 
                 <Image
-                    src={current.image}
-                    alt={current.alt}
+                    key={dynamicImage}
+                    src={dynamicImage || current.image}
+                    alt={dynamicText || current.alt}
                     boxSize="200px"
                     mb={6}
                     objectFit="contain"
-                    onClick={() => speak(current.text)}
+                    onClick={() => speak(dynamicText)}
                     cursor="pointer"
+                    animation={`${fadeIn} 0.5s ease-in-out forwards`}
                 />
 
                 {!showNext ? (
+                    // 1. ¿Es una Cadena de Palabras?
+                    current.type === "chain" && current.chainSteps ? (
+                        <WordChain
+                            key={current.id}
+                            wordData={current}
+                            onDone={handleDone}
+                            onError={() => {
+                                loseLife();
+                                if (lives - 1 <= 0) {
+                                    discardPoints();
+                                    navigate("/level-incorrect");
+                                }
+                            }}
+                            onImageChange={setDynamicImage} // Pasamos la función
+                            onTextChange={setDynamicText}
+                        />
+                    ) :
                     // ¿Es una oración decodificable?
                     current.type === "sentence" && current.sentenceParts && current.options ? (
                         <DecodableText
@@ -187,7 +212,8 @@ export default function Level() {
                             lineHeight="1"
                             // textTransform={"lowercase"}
                         >
-                            {current.text.valueOf()}
+                                {/* {current.text.valueOf()} */}
+                                {dynamicText.toLowerCase()}
                         </Text>
                     </Box>
                 )}
